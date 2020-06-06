@@ -2,9 +2,17 @@ package com.questions;
 
 class Solution {
 
+    //find the longest palindromic subsequence's length
 
-    //LPASPAL
-    //babcbab
+    // Solution: 1) Create a 2D array NxN where N is the length of the string.
+    //           2) In a for loop, assign the value 1 tot he principally diagonal elements of the table
+    //           3) Move diagonally above the principally diagonal elements and check the following.
+    //              To move diagonally, need 2 FOR loops. The outer FOR loops will give the no of elements to pick (i)
+    //              The inner FOR loop will loop from 0 till N - outer for loop. So the loop does not go out of bound. (j)
+    //           4) Head of the subsequence is j. An integer k = i+j to get the tail of the subsequence.
+    //           5) If head and tail (charAt j and k) are equal, assign 2 + value at diagonally below/behind element (table[j+1][k-1] + 2).
+    //           6) Else assign the max of element directly behind and below.
+    //           7) The value at element table[0][length-1] is the value of the longest palindromic subsequence.
 
     public int longestPalindromeSubseq(String text) {
         int length = text.length();
