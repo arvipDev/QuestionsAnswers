@@ -1,6 +1,6 @@
 package com.questions;
 
-class Solution {
+class Question5 {
 
     //find the longest palindromic subsequence's length
 
