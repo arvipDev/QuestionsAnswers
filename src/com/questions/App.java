@@ -14,7 +14,7 @@ public class App {
         int[] temp2 = six.twoSum(new int[]{1, 11, 7, 15, 2}, 9);
         System.out.println(temp2[0]);
         System.out.println(temp2[1]);*/
-        System.out.println(7 / 10);
 
     }
+
 }
