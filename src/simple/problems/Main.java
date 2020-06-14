@@ -5,11 +5,16 @@ public class Main {
         //Question1 q1 = new Question1();
         //System.out.println(q1.isPalindrome(121));
 
-        Question2 q2 = new Question2();
+/*        Question2 q2 = new Question2();
         System.out.println(q2.romanToInt("XXXIV"));
         System.out.println(q2.romanToInt("LVIII"));
         System.out.println(q2.romanToInt("IX"));
         System.out.println(q2.romanToInt("MCMXCIV"));
-        System.out.println(q2.romanToInt("DCXXI"));
+        System.out.println(q2.romanToInt("DCXXI"));*/
+
+        Question3 q3 = new Question3();
+        System.out.println(q3.countPrimes(10));
+
+
     }
 }
