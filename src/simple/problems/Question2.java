@@ -5,7 +5,7 @@ package simple.problems;
 
 
 public class Question2 {
-    public int romanToInt(String s) {
+/*    public int romanToInt(String s) {
         int current, previous, sum = convertToInt(String.valueOf(s.charAt(0)));
         for (int i = 1; i < s.length(); i++){
             current = convertToInt(String.valueOf(s.charAt(i)));
@@ -15,6 +15,19 @@ public class Question2 {
             } else {
                 sum = (sum - previous) + (current - previous);
             }
+        }
+        return sum;
+    }*/
+
+    public int romanToInt(String s) {
+        int current, previous, sum = 0;
+        previous = convertToInt(String.valueOf(s.charAt(0)));
+        for (int i = 1; i < s.length(); i++){
+            current = convertToInt(String.valueOf(s.charAt(i)));
+            if (previous <= current)
+                sum += previous;
+            else sum -= previous;
+            previous = current;
         }
         return sum;
     }

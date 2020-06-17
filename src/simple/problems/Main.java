@@ -13,7 +13,11 @@ public class Main {
         System.out.println(q2.romanToInt("DCXXI"));*/
 
         Question3 q3 = new Question3();
-        System.out.println(q3.countPrimes(10));
+        System.out.println(q3.countPrimes(10000));
+
+        //boolean test[] = new boolean[3];
+
+
 
 
     }

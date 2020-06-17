@@ -8,8 +8,11 @@ package simple.problems;
 //      5) Within the loop check if n is divisible by i or divisible by (i + 2), if yes then false.
 //      6) If the method does not return within for loop, then return true outside the loop.
 
+import java.util.Arrays;
+
 public class Question3 {
-    public int countPrimes(int n) {
+    //Solution 1
+/*    public int countPrimes(int n) {
         int count = 0;
         for (int i = 0; i < n; i++){
             if (isPrime (i)) {
@@ -27,22 +30,59 @@ public class Question3 {
             if (n % i == 0 || n % (i+2) == 0) return false;
         }
         return true;
-    }
+    }*/
 
-/*    public int countPrime (int n) {
-        int count = 3;
-        if (n <= 1) return 0;
-        if (n <= 2) return 1;
-        if (n <= 3) return 2;
-        for (int i = 5; i < n; i = i + 6){
-            System.out.println("i " + i);
+    /*//Solution 1
+    public int countPrimes(int n) {
+        int count = 2;
+        boolean isPrime[] = new boolean[n];
+        //Arrays.fill(isPrime, true);
+        if (n <= 2) return 0;
+        if (n == 3) return 1;
+        isPrime[0] = false;
+        isPrime[1] = false;
+        isPrime[2] = true;
+        isPrime[3] = true;
+        for (int i = 4; i < n; i++){
+            if (i % 2 == 0 || i % 3 == 0) isPrime[i] = false;
+            else {
+                System.out.println(i + " i ");
+                int tag = 0;
+                for (int j = 5; j*j <= i; j = j + 6){
+                    if (i % j == 0 || i % (j + 2) == 0) {
+                        isPrime[i] = false;
+                        tag = 1;
+                    }
+                }
+                if (tag == 0) isPrime[i] = true;
 
-            System.out.println("i+1 " + (i+2));
-            if (n % i != 0) {
-                count++;
             }
-            if (n % (i + 2) != 0) count++;
+        }
+        for (int i = 4; i < n; i++){
+            if(isPrime[i]) count++;
+            System.out.println(i + " i ");
+            System.out.println(isPrime[i] );
         }
         return count;
     }*/
+
+    //Solution 3 - Best algo - Sieve of Eratosthenes
+
+    public int countPrimes(int n) {
+        int count = 0;
+        boolean[] isPrime = new boolean[n];
+        Arrays.fill(isPrime, true);
+
+        for (int i = 2; i*i < n; i++){
+            if (isPrime[i]) {
+                for (int j = i*i; j < n; j += i){
+                    isPrime[j] = false;
+                }
+            }
+        }
+        for (int i = 2; i < n; i++){
+            if (isPrime[i]) count++;
+        }
+        return count;
+    }
 }
