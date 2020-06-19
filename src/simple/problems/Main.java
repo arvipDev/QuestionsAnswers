@@ -10,12 +10,14 @@ public class Main {
         System.out.println(q2.romanToInt("LVIII"));
         System.out.println(q2.romanToInt("IX"));
         System.out.println(q2.romanToInt("MCMXCIV"));
-        System.out.println(q2.romanToInt("DCXXI"));*/
+        System.out.println(q2.romanToInt("DCXXI"));
 
         Question3 q3 = new Question3();
-        System.out.println(q3.countPrimes(10000));
+        System.out.println(q3.countPrimes(10000));*/
 
-        //boolean test[] = new boolean[3];
+        Question7 q4 = new Question7();
+        System.out.println(q4.isIsomorphic("foo","bar"));
+        System.out.println(q4.isIsomorphic("aa","ab"));
 
 
 
