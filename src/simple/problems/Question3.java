@@ -70,7 +70,6 @@ public class Question3 {
 
     public int countPrimes(int n) {
         int count = 0;
-        int sum = 0;
         boolean[] isPrime = new boolean[n];
         Arrays.fill(isPrime, true);
 

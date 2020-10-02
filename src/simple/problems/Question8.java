@@ -21,7 +21,7 @@ public class Question8 {
     }
 
     // This solution works for small arrays.
-/*    public int repeatedNTimes(int[] A) {
+/*  public int repeatedNTimes(int[] A) {
         double in = System.currentTimeMillis();
         int size = A.length;
         int number = A[0];

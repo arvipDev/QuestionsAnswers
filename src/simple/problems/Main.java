@@ -18,6 +18,8 @@ public class Main {
         Question7 q4 = new Question7();
         System.out.println(q4.isIsomorphic("foo","bar"));
         System.out.println(q4.isIsomorphic("aa","ab"));
+        System.out.println(q4.isIsomorphic("ab","ca"));
+        System.out.println(q4.isIsomorphic("ab","aa"));
 
 
 
