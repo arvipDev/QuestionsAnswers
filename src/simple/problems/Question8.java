@@ -20,6 +20,16 @@ public class Question8 {
         System.out.println(q8.repeatedNTimes(A));
     }
 
+    public int repeatedNTimes(int[] A) {
+        if (A[0] == A[A.length-1]) return A[0];
+        for (int i = 1; i <= 2; i++){
+            for (int j = 0; j < A.length - i; j++){
+                if (A[j] == A[i+j]) return A[j];
+            }
+        }
+        return 0;
+    }
+
     // This solution works for small arrays.
 /*  public int repeatedNTimes(int[] A) {
         double in = System.currentTimeMillis();
@@ -59,13 +69,4 @@ public class Question8 {
     }*/
 
     //O(NlogN)
-    public int repeatedNTimes(int[] A) {
-        if (A[0] == A[A.length-1]) return A[0];
-        for (int i = 1; i <= 2; i++){
-            for (int j = 0; j < A.length - i; j++){
-                if (A[j] == A[i+j]) return A[j];
-            }
-        }
-        return 0;
-    }
 }
