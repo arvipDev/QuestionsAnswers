@@ -5,23 +5,31 @@ package simple.problems;
 
 public class Question10 {
     public static void main(String[] args) {
-        int[] A = {3,4,2,3};
+        //int[] A = {3,4,2,3};
         //int[] A = {4,2,3};
-        //int[] A = {5,7,1,8};
+        //int[] A = {5,7,1,8}; // 4128
         //int[] A = {1,2,3};
         //int[] A = {1,3,2};
-        //int[] A = {4,2,1};
+        int[] A = {4, 2, 1}; //[-1,4,2,3] //-1443
         Question10 q10 = new Question10();
         System.out.println(q10.checkPossibility(A));
     }
 
     public boolean checkPossibility(int[] nums) {
         int counter = 0;
-        int size = nums.length;
-        if (size < 3) return true;
-        for (int i = 0; i < size - 1; i++){
-            counter++;
+        for (int i = 0; i < nums.length - 1; i++){
+            if (nums[i] > nums[i+1]) {
+                counter++;
+                if (i > 0) {
+                    if (nums[i-1] <= nums[i+1]){
+                        nums[i] = nums[i-1];
+                    }else {
+                        nums[i+1] = nums[i];
+                    }
+                }
+                if (counter > 1) return false;
+            }
         }
-        return false;
+        return true;
     }
 }
