@@ -5,9 +5,10 @@ package simple.problems;
 // 32-bit signed integer range: [−231,  231 − 1].
 // For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
-// Solution - If all digits of reversed integer is more than the digits of MAX integer, return 0;
-//            If all digits except the last digit of reversed integer is equal to the digits of MAX integer and
-//            the last digit is more than MAX_VALUE % 10, return 0.
+// Solution - If the value of all digits of reversed integer is more than the value of digits of MAX integer except
+//            the last digit, return 0;
+//            If the value of all digits except the last digit of reversed integer is equal to the value of digits of
+//            MAX integer except the last digit and the last digit is more than MAX_VALUE % 10, return 0.
 //                      OR
 //            If permitted to use long, used long to reverse the integer and compare it with Integer.MAX_VALUE and
 //            Integer.MIN_VALUE - convert long to int and return the value.
