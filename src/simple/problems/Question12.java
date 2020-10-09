@@ -8,7 +8,6 @@ public class Question12 {
     public static void main(String[] args) {
         Question12 q12 = new Question12();
         System.out.println(q12.numIdenticalPairs(new int[]{1,2,3,1,1,3}));
-
     }
 
     // Using an array and formula (n * (n-1)/2) to find the repetition.
@@ -25,6 +24,7 @@ public class Question12 {
             if (max < 0) return counter;
             counter += (value * (value - 1)) / 2;
             max--;
+            System.out.println(counter);
         }
         return counter;
     }
