@@ -8,10 +8,20 @@ package simple.problems;
 //2 <= arr.length <= 1000
 //-10^6 <= arr[i] <= 10^6
 
+import java.util.Arrays;
+
 public class Question14 {
     public static void main(String[] args) {
-
+        Question14 q14 = new Question14();
+        //System.out.println(q14.canMakeArithmeticProgression(new int[] {1,2,4}));
+        System.out.println(q14.canMakeArithmeticProgression(new int[] {1,5,3}));
     }
 
-
+    public boolean canMakeArithmeticProgression(int[] arr) {
+        Arrays.sort(arr);
+        for (int i = 2; i < arr.length; i++){
+            if (arr[i] - arr[i-1] != arr[i-1] - arr[i-2]) return false;
+        }
+        return true;
+    }
 }
