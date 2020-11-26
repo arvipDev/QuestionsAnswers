@@ -4,10 +4,10 @@ public class App {
     public static void main(String[] args) {
 
         //testOne();
-        testTwo("We need to send category:books to the buyers and" +
-                "look at category:cash for rewards, ignore category:message");
-        testThree();
-
+        //testTwo("We need to send category:books to the buyers and" +
+        //        "look at category:cash for rewards, ignore category:message");
+        //testThree();
+        
     }
 
     // Interface, Super class, Child class example.
@@ -81,6 +81,10 @@ public class App {
         for (int i = sent.length() - 1; i >= 0; --i){
             System.out.print(sent.charAt(i));
         }
+    }
+
+    public static void testFour () {
+        
     }
 
 }
