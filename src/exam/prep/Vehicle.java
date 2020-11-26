@@ -7,6 +7,7 @@ public class Vehicle {
     private String make;
     private String modle;
     private double price;
+    private int age;
 
     public String getMake() {
         return make;
@@ -47,6 +48,7 @@ public class Vehicle {
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
         return Double.compare(vehicle.price, price) == 0 &&
+                age == vehicle.age &&
                 Objects.equals(make, vehicle.make) &&
                 Objects.equals(modle, vehicle.modle);
     }
