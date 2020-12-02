@@ -2,6 +2,11 @@ package exam.prep;
 
 public class Animal extends Vertebrate implements Mobility {
 
+    public static void main(String[] args) {
+        Vertebrate v = new Animal(6, "snow");
+        v.origin();
+    }
+
     public Animal(int age, String terrain) {
         super(age, terrain);
     }

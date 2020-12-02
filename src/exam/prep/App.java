@@ -3,7 +3,7 @@ package exam.prep;
 public class App {
     public static void main(String[] args) {
 
-        //testOne();
+        testOne();
         //testTwo("We need to send category:books to the buyers and" +
         //        "look at category:cash for rewards, ignore category:message");
         //testThree();
@@ -12,6 +12,7 @@ public class App {
 
     // Interface, Super class, Child class example.
     public static void testOne  () {
+
         Bird sparrow = new Bird(1, "sky");
         Animal wolf = new Animal(6, "snow");
         // Instances have access to methods from both overriding methods of the interface and parent class
@@ -24,7 +25,7 @@ public class App {
 
         Vertebrate v1 = new Bird(5, "sea");
         Vertebrate v2 = new Animal(6, "tree");
-        // Type casting a child to its parent - Methods defined in children are not accessible
+        // Assigning child object to its parent reference - Methods defined in parent is not accessible
         // Reference variable (in stack) is of the parent, object (in heap) is of children.
         v1.origin();
         v2.origin();
@@ -82,9 +83,4 @@ public class App {
             System.out.print(sent.charAt(i));
         }
     }
-
-    public static void testFour () {
-        
-    }
-
 }
