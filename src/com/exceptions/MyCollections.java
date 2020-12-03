@@ -6,8 +6,8 @@ import java.util.LinkedList;
 public class MyCollections {
     //Arrays, ArrayList, LinkedList
     public static void main(String[] args) {
-        //testOne();
-        testTwo();
+        testOne();
+        //testTwo();
     }
 
     private static void testOne () {
@@ -23,7 +23,10 @@ public class MyCollections {
         alist.iterator().forEachRemaining(s -> System.out.println(s));
         System.out.println(alist.iterator().hasNext());
         System.out.println(alist.iterator().next());
-        //System.out.println(alist.toString());
+        System.out.println(alist.toString());
+        for(String name: alist){
+            System.out.println(name);
+        }
     }
 
     private static void testTwo () {
