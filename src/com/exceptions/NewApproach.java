@@ -1,4 +1,4 @@
 package com.exceptions;
 
-public class OLdApproach {
+public class NewApproach {
 }
