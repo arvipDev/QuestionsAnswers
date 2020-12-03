@@ -1,13 +1,13 @@
 package com.exceptions;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
 public class MyCollections {
     //Arrays, ArrayList, LinkedList
     public static void main(String[] args) {
-        testOne();
+        //testOne();
         //testTwo();
+        testThree();
     }
 
     private static void testOne () {
@@ -47,4 +47,17 @@ public class MyCollections {
         System.out.println("*****************");
         alist.iterator().forEachRemaining(s -> System.out.println(s));
     }
+    private static void testThree(){
+        LinkedHashSet<String> names = new LinkedHashSet<>();
+        names.add("Arvind");
+        names.add("Purushotham");
+        names.add("Sneha");
+        names.add("Bilinti");
+        names.add("Bilinti");
+        names.add("Bilinti");
+        names.iterator().forEachRemaining(s -> System.out.println(s));
+        // if a custom object is assigned as type for LinkedHashSet, then the custom class must define toString, equals and
+        // hashCode.
+    }
+
 }
