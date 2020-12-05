@@ -6,8 +6,9 @@ public class MyCollections {
     //Arrays, ArrayList, LinkedList
     public static void main(String[] args) {
         //testOne();
-        testTwo();
+        //testTwo();
         //testThree();
+        testFour();
     }
 
     private static void testOne () {
@@ -73,6 +74,23 @@ public class MyCollections {
         names.iterator().forEachRemaining(s -> System.out.println(s));
         // if a custom object is assigned as type for LinkedHashSet, then the custom class must define toString, equals and
         // hashCode.
+    }
+
+    private static void testFour(){
+        HashSet<Student> students = new HashSet<>();
+        students.add(new Student("Arvind", 29, 1354));
+        students.add(new Student("Sneha", 29, 1324));
+        students.add(new Student("Alex", 35, 6684));
+        students.add(new Student("Pat", 19, 2114));
+        students.add(new Student("Linda", 23, 1687));
+        students.add(null);
+        students.add(null);
+
+        System.out.println(students.size());
+        System.out.println(students.toString());
+        LinkedList<Student> list = new LinkedList<Student>(students);
+        Collections.sort(list);
+        System.out.println(list);
     }
 
 }
