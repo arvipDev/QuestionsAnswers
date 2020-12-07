@@ -20,6 +20,7 @@ public class AggregatorApp {
 			
 			-->> YOUR WORK SHOULD BE DONE IN THE AggregatorProcessor CLASS. 
 		**/
+		//Arvind P
 
 		MaxAggregator agg = new MaxAggregator();
 		AggregatorProcessor<MaxAggregator> aggsProcessor = new AggregatorProcessor<MaxAggregator>(agg, "table.csv");
