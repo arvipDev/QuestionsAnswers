@@ -16,6 +16,7 @@ public class AggregatorApp {
 			
 			-->> YOUR WORK SHOULD BE DONE IN THE AggregatorProcessor CLASS. 
 		**/
+		//Arvind P
 
 //		MinAggregator agg = new MinAggregator();
 //		AggregatorProcessor<MinAggregator> aggsProcessor = new AggregatorProcessor<MinAggregator>(agg, "table.csv");
