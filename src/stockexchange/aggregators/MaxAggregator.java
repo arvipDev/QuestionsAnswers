@@ -3,7 +3,6 @@ package stockexchange.aggregators;
 import java.util.List;
 
 public class MaxAggregator extends Aggregator{
-	
 
 	@Override
 	public double calculate() {
