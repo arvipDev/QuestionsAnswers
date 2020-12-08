@@ -2,6 +2,7 @@ package stockexchange.client;
 
 import stockexchange.aggregators.AggregatorProcessor;
 import stockexchange.aggregators.MaxAggregator;
+import stockexchange.aggregators.MeanAggregator;
 import stockexchange.aggregators.MinAggregator;
 
 import java.io.IOException;
@@ -20,14 +21,10 @@ public class AggregatorApp {
 			
 			-->> YOUR WORK SHOULD BE DONE IN THE AggregatorProcessor CLASS. 
 		**/
-		//Arvind P
 
 		MaxAggregator agg = new MaxAggregator();
-		AggregatorProcessor<MaxAggregator> aggsProcessor = new AggregatorProcessor<MaxAggregator>(agg, "table.csv");
+		AggregatorProcessor<MaxAggregator> aggsProcessor = new AggregatorProcessor<>(agg, "table.csv");
 		double value = aggsProcessor.runAggregator(1);
 		System.out.println(value);
-	
-
 	}
-
 }

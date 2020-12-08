@@ -3,25 +3,22 @@ package stockexchange.aggregators;
 import stockexchange.fileprocessors.StockFileReader;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
-public class AggregatorProcessor<T> {
+public class AggregatorProcessor<T extends Aggregator> {
 
-    private Aggregator agg;
-    private String path;
+    private final T agg;
+    private final String path;
 
 
     public AggregatorProcessor(T agg, String s) {
-        this.agg = (Aggregator) agg;
+        this.agg = agg;
         this.path = s;
 
     }
 
     public double runAggregator (int column) {
         double value = 0.0;
-
-
         try {
             StockFileReader reader = new StockFileReader(path);
             List<String> lines = reader.readFileData();
@@ -34,8 +31,6 @@ public class AggregatorProcessor<T> {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
         return value;
     }
 	
