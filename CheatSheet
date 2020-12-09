@@ -1,0 +1,398 @@
+Operators
+
+Arithmetic Operators
+Unary Arithmetic Operators (++, --)
+Relational Operators
+Logical Operators (&&, ||, !)
+Bitwise Operators (&, |, ^, ~, <<, >>, >>>)
+Assignment Operators (=)
+Compound Assignment Operators (+=, -=, *=, /=, <<=, >>=, &=, etc)
+Conditional Operator (a==b ? true:false)
+instanceof Operator
+Member Selection or Dot Operator
+(https://www.w3schools.in/java-tutorial/operators/)
+https://www.tutorialspoint.com/Java-Bitwise-Operators
+
+Byte = 8 bits - 128/-127
+Short = 16 bits - 32k
+Integer = 32 bits - 2.147 billion
+Long = 64 bits
+float = 32 bits
+double 64 bits (prefered over float in mordern computers and for precision BigDouble class is used)
+char = 16 bits
+boolean = 8 bits
+Strings - as big as the memory. They are immutable - can not modify a string instead a new string is created everytime it is called/modified and the old one gets discarded. But StringBuffer lets you modify a string
+
+Mammal -> Animal -> Dog and Cat
+
+Upcasting
+Cat c = new Cat();
+Animal a = c (Upcasting - it is automatic, no need of typecasting)
+Cat c2 = (Cat) a (Downcasting - manual, needs typecasting)
+(https://www.codejava.net/java-core/the-java-language/what-is-upcasting-and-downcasting-in-java)
+
+parameter vs argument (parameters are variables delcared in a method, arguments are the value of those variables passed to a method. Set parameters but pass arguments)
+return -1 while returning unimportant value
+void method is a procedure
+returning method is a function
+
+** Eculidean algorithm **
+https://www.geeksforgeeks.org/euclidean-algorithms-basic-and-extended/
+** **
+
+Objects -> state and behaviour
+state -> variables
+behaviour -> methods
+class -> blueprint of objects
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Largest prime factor - is the largest prime number that divides a given number
+Prime numbers follow (6k +- 1) except 2 and 3. The larger factor of a prime is alwasy a multiple of the smaller factor of itself, there we can check only till the square root of a number, following this we get time complexity of "O(sqrt(n))".
+
+OOPS ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Inheretance - Feature that allows a class to inherit properties of another class. Provides reusability.
+{
+	Types of inheritance - Single inheritance, multilevel inheritance, hierarchical inheritance, multiple inheritance (interface), hybrid inheritance (interface)
+	In the absence of superclass, Object class becomes superclass.
+	Multiple inheritance is not allowed using "extends" and hence there can be only one superclass. (Composition and interface is used to inherit multiple classes)
+	Private members of a parent is not inherited so Private methods are final.
+	Protected members are accessible within a package and inherited classes outside the package.
+	Parent's parent methods cant be accessed by child class.
+}
+
+Abstraction - It is the ability to hide the implementation from a user and showing only the essentail details. Abstraction means simple things like objects, classes, and variables represent more complex underlying code and data.
+{
+	Abstarction discloses the interface and hides the implementation.
+	It is achieved by interfaces and abstract classes.
+	Abstract classes can not be instantiated directly. Must have default constructor.
+	Abstract keyword is used to declare abstract classes.
+	Abstract methods are the ones declared without implementation.
+	A class with abstract methods must be declared abstract. Overriding is compulsory for abstract methods.
+	An abstract class may or may not have abstract methods, can have concrate methods.
+}
+
+Encapsulation - It is the ability to moderate access to data. It is a protective barrier that keeps the data and code safe. Access modifiers help in this process.
+{
+	Adding if else in the setter method with in the class to avoid users from entering unwanted values to the field.
+	(Not allowing the user to assign undesirable values to the object/object's variables)
+	Encapsulation hides the data.
+}
+
+Polymorphism - Polymorphism is the ability to present a single thing in multiple ways/forms.
+Default constructor and pverloaded constructors, overloadng methods, overriding methods, interface and its implementations are few examples
+{
+	Overloading (Complie time polymorphism or Static polymorphism) - When the definition of the method changes in the same class along with parameter changes.
+	Same method name, different paramenters. May or may not have same return type and access modifiers.
+	Operator overloading - "+", addition operator is use to add integers or concatinate strings (this is overloaded).
+
+	Overriding (Run time polymorphism or dynamic polymorphism) - When the definition of a method of the parent class changes in the child class.
+	Same name, same parameters. Should not have a lower access modifier, return type can be the subclass of the return type of the parent method.
+	(return type can be the one in the lower hirearchy of the inheritance). Only methods can be overridden and not variables.
+
+	Constructors are used to initialise an object without writing much code.
+	Derived methods - by inheriting, the child class gets all the methods of the parent class - overriding methods
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Abstract Class -
+{
+	When an instance of a class that extends abstract class is created, the constructor of abstract class is called.
+	An abstract class can be created without any abstract methods.
+	An abstract class can have final method.
+	An abstract method cant be final.
+	If we derive an abstract class and do not implement all the abstract methods, then the derived class should also be marked as abstract class.
+}
+
+Interface -
+{
+	Interfaces specify what a class must do. It is the blueprint of the class and is used to achieve loose coupling and multiple inheritance.
+	A class can implement multiple interfaces.
+	Many classes can implement the same interface.
+	Default and static methods with bodies are also permitted since Java 8. Static, private methods are also allowed since Java 9.
+	An interface can extend multiple interfaces but use extend keyword only once (using ",").
+}
+
+Static binding and Dynamic binding.
+Static Binding -  {
+	static, private, final methods are statically bound.
+	They are resolved at compile time.
+	Type information is used for binding instead of Objects and hence static methods of a parent class can not be redefined in child class.
+	Overloading methods use static binding, they prevent overriding.
+}
+Dyamic Binding - {
+	non static, non private, non final methods are dynamically bound.
+	They are resolved at run time.
+	They use Objects for binding.
+	Overriding methods are dynamically bound.
+}
+
+Objects are always created dynamically and are assigned to Heap. "new" keyword is used
+
+Covarient return types - can be found in factor design pattern
+
+Instance method vs Static method. {
+	Static varibales and methods are shared with all instances of the class it belongs to. Mostly used for taking inputs using Scanner object.
+	Static methods should be created when the method does not use any instance variables or methods. Else, it should be an instance method.
+	Instance methods are used only after instantiating the class and creating an object.
+}
+
+length and length() {
+	length is a Static attribute of Arrays.
+	length() gives the no of alphabets in a string.
+}
+
+Data Structures ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Arrays {
+	int arr[] = new int[5]; / {1, 2, 3, 4, 5} / int[] arr = new int[5]
+	0 indexed. Elements of an array are initialized to 0. 0.0, false, null.
+	arrayName.length is a static member and not a method.
+	Annanomus array is an array initialised in a single line.
+	Compare arrays using - Arrays.equals and Arrays.deepEquals (for objects)
+	Final Array's variables can be changed. Because object declared final can still have its variables referenced and changed.
+	A ava array is always an object. they are always allocated on heap just like all other objects.
+	.toArray() of Collection and List converts the list into an Object array. It returns an array of type Object (Object[])
+	https://www.geeksforgeeks.org/arraylist-array-conversion-java-toarray-methods/?ref=lbp
+}
+
+2D Arrays {
+	Also called Jagged arrays.
+	ex - int arr[][] == new int [2][]; meaning this array has 2 rows with undefined columns.
+	arr[0] = new int[3]; meaning first row has 3 columns.
+}
+
+Array List {
+	ArrayList<Type> alist = new ArrayList<Type>();
+	not fixed size, can grow. No need to mention size during initialisation.
+	ArrayList does not support primitive data types. It can hold only objects. Therefore, use Integer instead of int, and so on.
+	Similar to Vectors in C++.
+
+}
+
+Loops --------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+limitations of for-each loop {
+	Cant alter the array while traversing.
+	Cant keep track of the index.
+	Only forward traversing is possible.
+	Cant process multiple decision making statements.
+	for (int name : array){}
+}
+
+Shallow and Deep comparision {
+	"==" is shallow comparision because it compares the references (addreess) of 2 variables.
+	".equals" is deep comparision because it compares the instance variables of one object with another.
+}
+
+Collections -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Both of them ae part of java.util package.
+Both are zero indexed.
+
+Collection amd Map - diagram
+https://facingissuesonitcom.files.wordpress.com/2019/07/java-collection-framework-hierarchy.jpg
+https://facingissuesonit.com/2019/10/15/java-collection-framework-hierarchy/
+
+ArrayList {
+	Also called dynamic arrays.
+	It is an extension of arrays that grows in size. Each time it is doubled in size.
+	Suitable for quick access and update of elements. Does not do good for add/delete elements.
+	This class implements List interface and hence behaves like a list.
+}
+
+LinkedList {
+	It is a doubly linked list implementation.
+	It is best suited for list manipulation - add/delete of nodes in the list. Since it is doubly linked list, for
+	addition and deletion of nodes, the reference link is modifided without changing the position of rest of the nodes in the list.
+	This class implements List interface and Deque interface and hence behaves as a list and Deque.
+}
+
+HashSet {
+	This is not a key value pair like maps.
+	It is used when order is not important and when duplicates must be prevented.
+	It prevents insertion of duplicate elements.
+	If HashSet<CustomeType> then, the CuatomeType class must override equals and most importantly hashCode() method to prevent insertion of
+	duplicates.
+	This class implements Set interface from Collection interface.
+	Permits only one null element.
+}
+
+LinkedHashSet {
+	It is used when order as well as prevention of duplicates in the DS is important.
+	It lists out the elements in the order of insertion and it prevents insertion of duplicates.
+	Similar to HashSet, this ds also required overriding or hashCode() and equals().
+	This class implements Set interface from Collection interface.
+	Permits only one null element.
+}
+
+TreeSet {
+	They follow ascending order and the rest of the features are same as HashSet
+}
+
+HashMap {
+	Similar to HashSet but in this case the elements are key-value pairs.
+	They do not follow the order of insertion.
+	They do not accept duplicate entries instead they overwrite the element with the most recent entry.
+	The keys are always unique because duplicate entry will get overwritten instead of duplicating.
+	There can be only one null key and Multiple null values
+	This class impliments Map interface (Map does not implement/extend Collection interface)
+}
+
+LinkedHashMap {
+	Similar to HashMap but they follow the order of insertion.
+	This class impliments Map interface and it has no connection to Collection interface.
+}
+
+TreeMap {
+	The elements are made of Key-value pair. They follow ascending order and not the order of insertion.
+	They do not accept duplicate entries instead they overwrite the element with the most recent entry.
+	They do not allow null key but accepts null values.
+	This class impliments SortedMap interface which impliments Map interface.
+}
+
+Collection interface -> (Set, List, Queue, Deque)
+Set interface -> (LinkedHashSet, HashSet, SortedSet -> (TreeSet))
+List interface -> (LinkedList, ArrayList, Vector)
+Queue interface -> PriorityQueue
+Map interface -> (HashMap, HashTable, SortedMap -> (TreeMap))
+
+removeAll() - removes all the elements of a LinkedList/ArrayList
+addAll() - adds all the element of a given LinkedList/ArrayList to another LinkedList/ArrayList.
+retainAll() - retains the elements of a given LinkedList/ArrayList and removes all other elements of another LinkedList/ArrayList.
+
+removeFist() addFirst() Only for LinkedList - removes/adds elements to the begining of the list (at the head)
+removeLast() addLast() Only for LinkedList - removes/adds elements to the end of the list (at the tail)
+
+Generics ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Generics is used to make the program type-safe and resort to errors at compile time.
+Using generics, we can force collections to store only specific type of Objects.
+Use of generics eliminates use of type-casting.
+Type of generics -
+1) Upper bound - <T extends SomeObject>
+2) Lower bound - <T super SomeObject>
+3) using wild cards with generics - <? extends/super SomeObject>
+4) Unbound - <SomeObject>
+
+Multi-Threading ---------------------------------------------------------------------------------------------------------------------------------------------------------
+run() vs start() - https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/
+
+When start() method is called, it creates a seperate thread and invokes the run() method using that thread.
+When run() method is called, it does not create a new thread and it runs using the thread that calls it (Which would be the main thread if
+it is called inside main method)
+
+The definition of what the thread should do must be placed inside the overriding run() method.
+For multi-threading, start() method call must be made on the object that extends Thread class or implements Runnable interface.
+
+Thread vs Runnable - https://www.tutorialspoint.com/difference-between-thread-and-runnable-in-java
+Thread is a class, hence the class extending Thread class can not extend any other classes as Java does not support multiple inheritance.
+It has multiple methods like run() and start() methods.
+Each thread creates a unique object, hence used more memory.
+
+Runnable is an interface. The class implimenting runnable interface can implement other interfaces as well as extend another class.
+It has only an abstract run() method
+Multiple threads are assigned a single object, hence uses less memory.
+If a class implements Runnable interface, start() method can not be called on that class directly. Must create a Thread object and use it to call start() method on
+the class that implements Runnable interface.
+
+Synchronized block - using synchronized(object) issues a lock on a thread and the lock is not released untill the thread finishes execution.
+synchronized key word can also be assigned to a method definition to make the method call get a lock. The lock will not be released till the method finishes execution.
+
+I think - For multi-threading processing of a single resource, using Singleton to access the resource so that multiple instances will not be created and referenced by the threads.
+
+Scenarios - 1) Single database to be accessed my multiple clients
+			Establish a single connection to write to DB
+			Connection must be made synchronised.
+			These connections are accessed by multiple thread
+
+			2) Single object to be accessed by multiple clients
+			Create the object, the object must be nade synchronized or the method to be accessed inside it must be synchronized.
+			Assign same object to all the threads.
+
+cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+javac xyz.java
+java xyz
+java -jar xyz.jar
+jar -tvf xyz.jar (tabulate the content of jar)
+jar -xvf xyz.jar (extract jar file)
+jar -cvf xyz.jar manifest.mf *.class (create jar file)
+
+Input ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scanner class - nextLine() reads next line as string, hasNextLine() returns boolean
+This class implements iterator<String> and Closeable interfaces.
+
+File class - used to send data from a file to a scanner.
+This class implements Comparable<File> and Serializable interface.
+There are plenty of methods to call to check - read permission, length, absolute path, is executable, etc.
+
+FileReader class - reads streams of characters and must be used along with BufferedReader class.
+This class extends InputStreamReader which extends Reader which implements Readable and Closeable interfaces.
+
+BufferedReader class - used to read character based input streams. Used to read line by line.
+This class extends Reader class.
+
+Hierarchy chart - http://javadevwannabe.blogspot.com/2012/02/reader-and-writer-classes.html
+
+Handling errors and exceptions -----------------------------------------------------------------------------------------------------------------------------------------
+
+NOTE - If a method throws Exception and if that method is referenced, it must be placed in a try catch block or the method in which it is invoked must
+throw (throws) Exception.
+
+Use try catch block with finally block. Finally block is used to do something that is required to be done after either successufully performing the task in try block or after
+catching an exception in the catch block.
+
+Java 1.7 introduces try with resources. This eliminates the requirement for finally block 99.99 times. Try block takes in arguments that implement closeable interface and hence
+those resources are automatically closed by java.
+
+Closeable interface extends AutoCloseable interface and overides the close() method.
+This method is used by java to automatically close the resources that are sent as parameters to the try block.
+Use cases - To close open streams of input and output, Databases, etc
+
+A class can implement Closeable interface and be referred to as a argument(resource) in a try block that can be automatically closed.
+Since the close() method of Closeable and AutoCloseable interface throws IOException and Exception respectedly, we must catch that exception in the implementing try block.
+
+
+Q and A ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+1. Is it possible to create abstract and final class in Java?
+	No - Abstract classes are incomplete and must be extended, final classes are complete and can not be extended
+
+2. Is it possible to have an abstract method in a final class?
+	No - all classes having abstract method must be declared abstract.
+
+3. Is it possible to inherit from multiple abstract classes in Java?
+	No - Java discourages multiple inheritance
+
+https://www.geeksforgeeks.org/java-abstract-class-and-interface-question-3/?ref=rp
+
+https://www.geeksforgeeks.org/java-inheritance-question-1/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-3/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-5/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-6/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-7/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-8/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-9/?ref=lbp
+
+https://www.geeksforgeeks.org/java-inheritance-question-10/?ref=lbp
+
+
+
+
+
+
+
+
+
+
+
+
+https://radixcode.com/pdfbox-example-code-how-to-extract-text-from-pdf-file-with-java
+https://www.youtube.com/watch?v=McE9yHqr6Kk
