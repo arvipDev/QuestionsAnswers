@@ -308,6 +308,11 @@ Most suitable for multi-threaded processes. For traditional collections, synchro
 CopyOnWriteArrayList, ConcurrentMap, ConcurrentHashMap are all part of concurrent collections.
 Vectors and Stacks are part of traditional collections but they are thread-safe as all methods within them are synchronized.
 
+Using ExecutorService and Executors to create a pool of threads that performs tasks submitted by instances that implements Runnable interface.
+Executors has few different static method calls that can be made based on requirement ex- newFixedThreadPool(N) - N threads wil be spun
+by the pool
+
+
 cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 javac xyz.java
 java xyz
