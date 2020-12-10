@@ -4,9 +4,9 @@ import java.util.LinkedList;
 
 public class Producer implements Runnable {
 
-    LinkedList<Integer> questions;
+    final LinkedList<Integer> questions;
     final int limit = 5;
-    private int counter = 0;
+    private int counter;
 
     public Producer (LinkedList<Integer> questions){
         this.questions = questions;
@@ -15,6 +15,7 @@ public class Producer implements Runnable {
     private void askQuestions() throws InterruptedException {
         synchronized (questions){
             while (questions.size() == limit){
+                counter = 0;
                 System.out.println("Reached limit, waiting for questions to be answered first");
                 questions.wait();
             }

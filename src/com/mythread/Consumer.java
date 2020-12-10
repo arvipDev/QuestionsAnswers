@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Consumer implements Runnable{
 
-    LinkedList<Integer> questions;
+    final LinkedList<Integer> questions;
 
     public Consumer (LinkedList<Integer> questions){
         this.questions = questions;
