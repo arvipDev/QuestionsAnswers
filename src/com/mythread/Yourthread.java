@@ -2,7 +2,7 @@ package com.mythread;
 
 public class Yourthread implements Runnable {
 
-    private String name = null;
+    private final String name;
 
     public Yourthread (String name){
         this.name = name;
