@@ -266,16 +266,6 @@ retainAll() - retains the elements of a given LinkedList/ArrayList and removes a
 removeFist() addFirst() Only for LinkedList - removes/adds elements to the begining of the list (at the head)
 removeLast() addLast() Only for LinkedList - removes/adds elements to the end of the list (at the tail)
 
-Generics ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Generics is used to make the program type-safe and resort to errors at compile time.
-Using generics, we can force collections to store only specific type of Objects.
-Use of generics eliminates use of type-casting.
-Type of generics -
-1) Upper bound - <T extends SomeObject>
-2) Lower bound - <T super SomeObject>
-3) using wild cards with generics - <? extends/super SomeObject>
-4) Unbound - <SomeObject>
-
 Multi-Threading ---------------------------------------------------------------------------------------------------------------------------------------------------------
 run() vs start() - https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/
 
@@ -297,11 +287,13 @@ Multiple threads are assigned a single object, hence uses less memory.
 If a class implements Runnable interface, start() method can not be called on that class directly. Must create a Thread object and use it to call start() method on
 the class that implements Runnable interface.
 
-Synchronized block - using synchronized(object) issues a lock on a thread and the lock is not released untill the thread finishes execution.
+synchronized block - using synchronized(object) issues a lock on a thread and the lock is not released untill the thread finishes execution.
 synchronized key word can also be assigned to a method definition to make the method call get a lock. The lock will not be released till the method finishes execution.
 
-I think - For multi-threading processing of a single resource, using Singleton to access the resource so that multiple instances will not be created and referenced by the threads.
+How it works - synchronized block/method acquires a lock and it is not released till the method completes execution. Therefore the method will not be available to
+other threads while a thread is executing it.
 
+I think - For multi-threading processing of a single resource, using Singleton to access the resource so that multiple instances will not be created and referenced by the threads.
 Scenarios - 1) Single database to be accessed my multiple clients
 			Establish a single connection to write to DB
 			Connection must be made synchronised.
@@ -310,6 +302,11 @@ Scenarios - 1) Single database to be accessed my multiple clients
 			2) Single object to be accessed by multiple clients
 			Create the object, the object must be nade synchronized or the method to be accessed inside it must be synchronized.
 			Assign same object to all the threads.
+
+Concurrent Collection is used to provide thread safe methods unlike traditional collections which is mostly (There are few thread safe implementation) not thread safe.
+Most suitable for multi-threaded processes. For traditional collections, synchronization/thread-safety must be ensured by the programmer.
+CopyOnWriteArrayList, ConcurrentMap, ConcurrentHashMap are all part of concurrent collections.
+Vectors and Stacks are part of traditional collections but they are thread-safe as all methods within them are synchronized.
 
 cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 javac xyz.java
@@ -353,6 +350,15 @@ Use cases - To close open streams of input and output, Databases, etc
 A class can implement Closeable interface and be referred to as a argument(resource) in a try block that can be automatically closed.
 Since the close() method of Closeable and AutoCloseable interface throws IOException and Exception respectedly, we must catch that exception in the implementing try block.
 
+Generics ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Generics is used to make the program type-safe and resort to errors at compile time.
+Using generics, we can force collections to store only specific type of Objects.
+Use of generics eliminates use of type-casting.
+Type of generics -
+1) Upper bound - <T extends SomeObject>
+2) Lower bound - <T super SomeObject>
+3) using wild cards with generics - <? extends/super SomeObject>
+4) Unbound - <SomeObject>
 
 Q and A ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -382,6 +388,10 @@ https://www.geeksforgeeks.org/java-inheritance-question-8/?ref=lbp
 https://www.geeksforgeeks.org/java-inheritance-question-9/?ref=lbp
 
 https://www.geeksforgeeks.org/java-inheritance-question-10/?ref=lbp
+
+
+
+
 
 
 
