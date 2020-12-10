@@ -12,7 +12,7 @@ public class App {
     }
 
     // Only one object can be used per thread
-    private static void testOne() {
+    protected static void testOne() {
         Mythread thread = new Mythread();
         thread.start();
         System.out.println("Running on main thread...");
