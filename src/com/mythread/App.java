@@ -58,7 +58,6 @@ public class App {
 
         one.start();
         two.start();
-
     }
 
 }
