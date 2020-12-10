@@ -1,12 +1,14 @@
 package com.mythread;
 
 import java.util.LinkedList;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 
 public class App {
 
     public static void main(String[] args) {
 
-        producerConsumer();
+        producerConsumerTwo();
     }
 
     // Only one object can be used per thread
@@ -46,4 +48,17 @@ public class App {
         one.start();
         two.start();
     }
+
+    private static void producerConsumerTwo() {
+        BlockingQueue<Integer> questions = new ArrayBlockingQueue<>(5);
+        ConcurrentProducer producer = new ConcurrentProducer(questions);
+        ConcurrentConsumer consumer = new ConcurrentConsumer(questions);
+        Thread one = new Thread(producer);
+        Thread two = new Thread(consumer);
+
+        one.start();
+        two.start();
+
+    }
+
 }

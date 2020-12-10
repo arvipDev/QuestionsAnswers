@@ -1,6 +1,7 @@
 package com.mythread;
 
 import java.util.LinkedList;
+import java.util.concurrent.BlockingQueue;
 
 public class Producer implements Runnable {
 
