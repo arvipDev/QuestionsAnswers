@@ -1,11 +1,12 @@
 package com.mythread;
 
+import java.util.LinkedList;
+
 public class App {
 
     public static void main(String[] args) {
-        testOne();
-        testTwo();
-        testThree();
+
+        producerConsumer();
     }
 
     // Only one object can be used per thread
@@ -33,6 +34,16 @@ public class App {
         thread.start();
         MultiThread thread2 = new MultiThread(counter);
         thread2.start();
+    }
 
+    private static void producerConsumer() {
+        LinkedList<Integer> questions = new LinkedList<>();
+        Producer producer = new Producer(questions);
+        Consumer consumer = new Consumer(questions);
+        Thread one = new Thread(producer);
+        Thread two = new Thread(consumer);
+
+        one.start();
+        two.start();
     }
 }
