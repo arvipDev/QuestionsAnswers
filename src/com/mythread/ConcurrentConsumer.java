@@ -15,7 +15,7 @@ public class ConcurrentConsumer implements Runnable {
     public void run() {
         while (true){
             synchronized (this){
-                System.out.println("Asking new Question " + ++quest );
+                System.out.println("Asking new question, question number " + ++quest );
                 try {
                     questions.put(quest);
                 } catch (InterruptedException e) {
