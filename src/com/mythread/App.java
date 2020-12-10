@@ -57,7 +57,6 @@ public class App {
 
         one.start();
         two.start();
-<<<<<<< HEAD
     }
 
     private static void producerConsumerPool () {
@@ -70,10 +69,12 @@ public class App {
         Runnable runnerThree = new MessageProcessor(3);
         executor.submit(runnerThree);
 
-
-
-=======
->>>>>>> 568272b67cbb98eb74c03918d60812be41e19b85
+        executor.shutdown();
+        try {
+            executor.awaitTermination(1000, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
