@@ -57,6 +57,7 @@ public class App {
 
         one.start();
         two.start();
+<<<<<<< HEAD
     }
 
     private static void producerConsumerPool () {
@@ -71,6 +72,8 @@ public class App {
 
 
 
+=======
+>>>>>>> 568272b67cbb98eb74c03918d60812be41e19b85
     }
 
 }
