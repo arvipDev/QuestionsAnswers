@@ -307,6 +307,12 @@ Concurrent Collection is used to provide thread safe methods unlike traditional 
 Most suitable for multi-threaded processes. For traditional collections, synchronization/thread-safety must be ensured by the programmer.
 CopyOnWriteArrayList, ConcurrentMap, ConcurrentHashMap are all part of concurrent collections.
 Vectors and Stacks are part of traditional collections but they are thread-safe as all methods within them are synchronized.
+Using .join() will make the corrent thread join the main thread once it completed executing code. This will make any other thread wait for the thread to join main thread.
+
+Produce-Consumer using wait() and notify()
+wait() is used to ask the thread to wait till another notifies it to continue.
+notify() is used to tell the other thread that is waiting to continue.
+NOTE - InterruptedException is probably thrown in a multi-threaded environment.
 
 cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 javac xyz.java
