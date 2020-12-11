@@ -314,6 +314,11 @@ wait() is used to ask the thread to wait till another notifies it to continue.
 notify() is used to tell the other thread that is waiting to continue.
 NOTE - InterruptedException is probably thrown in a multi-threaded environment.
 
+Using ExecutorService and Executors to create a pool of threads that performs tasks submitted by instances that implements Runnable interface.
+Executors has few different static method calls that can be made based on requirement ex- newFixedThreadPool(N) - N threads wil be spun
+by the pool
+
+
 cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 javac xyz.java
 java xyz

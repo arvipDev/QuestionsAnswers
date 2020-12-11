@@ -1,14 +1,13 @@
 package com.mythread;
 
 import java.util.LinkedList;
-import java.util.concurrent.ArrayBlockingQueue;
-import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.*;
 
 public class App {
 
     public static void main(String[] args) {
 
-        producerConsumerTwo();
+        producerConsumerPool();
     }
 
     // Only one object can be used per thread
@@ -58,6 +57,24 @@ public class App {
 
         one.start();
         two.start();
+    }
+
+    private static void producerConsumerPool () {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
+
+        Runnable runnerOne = new MessageProcessor(1);
+        executor.submit(runnerOne);
+        Runnable runnerTwo = new MessageProcessor(2);
+        executor.submit(runnerTwo);
+        Runnable runnerThree = new MessageProcessor(3);
+        executor.submit(runnerThree);
+
+        executor.shutdown();
+        try {
+            executor.awaitTermination(1000, TimeUnit.MILLISECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
