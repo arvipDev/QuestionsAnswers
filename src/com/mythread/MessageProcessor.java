@@ -8,6 +8,7 @@ public class MessageProcessor implements Runnable {
         this.message = message;
     }
 
+
     @Override
     public void run() {
 
