@@ -15,6 +15,7 @@ public class Datahouse {
             while (resultSet.next()){
                 System.out.println(resultSet.getString("name"));
             }
+            conn.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
