@@ -5,13 +5,13 @@ import java.sql.*;
 public class Datahouse {
 
     public static void main(String[] args) {
-        testFour();
+        testOne();
     }
 
     private static void testOne () {
 
         // retrieve data from MySQL database, table employees_tbl
-        String url = "jdbc:mysql://127.0.0.1:3306/employee_database";
+        String url = "jdbc:mysql://192.168.1.100:3306/employee_database";
         try {
             Connection conn = DriverManager.getConnection(url, "root", "");
             Statement statement = conn.createStatement();
