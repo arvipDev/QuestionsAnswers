@@ -318,6 +318,7 @@ Using ExecutorService and Executors to create a pool of threads that performs ta
 Executors has few different static method calls that can be made based on requirement ex- newFixedThreadPool(N) - N threads wil be spun
 by the pool
 
+JDBC --------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
 javac xyz.java
