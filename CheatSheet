@@ -341,9 +341,13 @@ Can be used for any type of query - execute("sql statement"); can be used.
 Can be used to execute statements that returns a resultset (like a list of rows) - executeQuery("sql statement");
 Can be used to execute statement that updates or modifies the database - executeUpdate("sql statement");
 
+SQL turotials - https://www.w3schools.com/sql/default.asp
 
+JShell ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+JShell is used to test lines/methods without have a main class.
+Very useful for testing individual methods, lines/blocks of code without having class or creating objects of the class.
 
-
+Lambda ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
