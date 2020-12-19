@@ -334,7 +334,15 @@ DriverManager is used to establish a connection with the database and pass the r
 getConnection() method from the DriverManager class returns a Connection object which is passed on to the Connection instance variable. getConnection() takes in parameters
 Connection conn = DriverManager.getConnection(url, username, password);
 Statement interface is used to create a statement to execute on the database.
-Connection object has createStatement() method that returns a STatement object which used to create a statement.
+Connection object has createStatement() method that returns a Statement object which is used to create a statement.
+
+We can use the statement object to call methods based on the sql statement -
+Can be used for any type of query - execute("sql statement"); can be used.
+Can be used to execute statements that returns a resultset (like a list of rows) - executeQuery("sql statement");
+Can be used to execute statement that updates or modifies the database - executeUpdate("sql statement");
+
+
+
 
 
 

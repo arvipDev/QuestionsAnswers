@@ -21,7 +21,6 @@ public class Datahouse {
                 System.out.println(resultSet.getString("name"));
             }
             conn.close();
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -40,6 +39,7 @@ public class Datahouse {
                     "values(1245, 'Arvind', 'Science', 25000)");
             if (value == 1)
                 System.out.println("Successfully inserted a record into the table");
+            conn.close();
         } catch (SQLException e) {
             System.out.println("Error trying to insert a record into the table");
             e.printStackTrace();
@@ -57,6 +57,7 @@ public class Datahouse {
             Statement statement = conn.createStatement();
             value = statement.executeUpdate("delete from employees_tbl where name='alex'");
             System.out.println("removing row " + value);
+            conn.close();
         } catch (SQLException e) {
             System.out.println("Error trying to insert a record into the table");
             e.printStackTrace();
@@ -74,6 +75,7 @@ public class Datahouse {
             Statement statement = conn.createStatement();
             value = statement.executeUpdate("alter table employees_tbl drop column name");
             System.out.println("removing column " + value);
+            conn.close();
         } catch (SQLException e) {
             System.out.println("Error trying to insert a record into the table");
             e.printStackTrace();
