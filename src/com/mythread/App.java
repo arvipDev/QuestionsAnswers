@@ -7,7 +7,7 @@ public class App {
 
     public static void main(String[] args) {
 
-        producerConsumerPool();
+        producerConsumer();
     }
 
     // Only one object can be used per thread
@@ -29,6 +29,7 @@ public class App {
         thread2.start();
     }
 
+    //Two threads performing increment on same object. Synchronized in nature
     private static void testThree() {
         Counter counter = new Counter();
         MultiThread thread = new MultiThread(counter);
@@ -37,6 +38,7 @@ public class App {
         thread2.start();
     }
 
+    //Producer Consumer model using wait() notify() methods.
     private static void producerConsumer() {
         LinkedList<Integer> questions = new LinkedList<>();
         Producer producer = new Producer(questions);
@@ -48,6 +50,7 @@ public class App {
         two.start();
     }
 
+    // Producer Consumer model using concurrent collections.
     private static void producerConsumerTwo() {
         BlockingQueue<Integer> questions = new ArrayBlockingQueue<>(5);
         ConcurrentProducer producer = new ConcurrentProducer(questions);
@@ -59,6 +62,7 @@ public class App {
         two.start();
     }
 
+    //Using thread pools for producer consumer model
     private static void producerConsumerPool () {
         ExecutorService executor = Executors.newFixedThreadPool(2);
 
