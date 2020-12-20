@@ -266,6 +266,61 @@ retainAll() - retains the elements of a given LinkedList/ArrayList and removes a
 removeFist() addFirst() Only for LinkedList - removes/adds elements to the begining of the list (at the head)
 removeLast() addLast() Only for LinkedList - removes/adds elements to the end of the list (at the tail)
 
+Input ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Scanner class - nextLine() reads next line as string, hasNextLine() returns boolean
+This class implements iterator<String> and Closeable interfaces.
+
+File class - used to send data from a file to a scanner.
+This class implements Comparable<File> and Serializable interface.
+There are plenty of methods to call to check - read permission, length, absolute path, is executable, etc.
+
+FileReader class - reads streams of characters and must be used along with BufferedReader class.
+This class extends InputStreamReader which extends Reader which implements Readable and Closeable interfaces.
+
+BufferedReader class - used to read character based input streams. Used to read line by line.
+This class extends Reader class.
+
+Hierarchy chart - http://javadevwannabe.blogspot.com/2012/02/reader-and-writer-classes.html
+
+Handling errors and exceptions -----------------------------------------------------------------------------------------------------------------------------------------
+
+NOTE - If a method throws Exception and if that method is referenced, it must be placed in a try catch block or the method in which it is invoked must
+throw (throws) Exception.
+
+Use try catch block with finally block. Finally block is used to do something that is required to be done after either successufully performing the task in try block or after
+catching an exception in the catch block.
+
+Java 1.7 introduces try with resources. This eliminates the requirement for finally block 99.99 times. Try block takes in arguments that implement closeable interface and hence
+those resources are automatically closed by java.
+
+Closeable interface extends AutoCloseable interface and overides the close() method.
+This method is used by java to automatically close the resources that are sent as parameters to the try block.
+Use cases - To close open streams of input and output, Databases, etc
+
+A class can implement Closeable interface and be referred to as a argument(resource) in a try block that can be automatically closed.
+Since the close() method of Closeable and AutoCloseable interface throws IOException and Exception respectedly, we must catch that exception in the implementing try block.
+
+cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+javac xyz.java
+java xyz
+java -jar xyz.jar
+jar -tvf xyz.jar (tabulate the content of jar)
+jar -xvf xyz.jar (extract jar file)
+jar -cvf xyz.jar manifest.mf *.class (create jar file)
+
+Generics ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Generics is used to make the program type-safe and resort to errors at compile time.
+Using generics, we can force collections to store only specific type of Objects.
+Use of generics eliminates use of type-casting.
+Type of generics -
+1) Upper bound - <T extends SomeObject>
+2) Lower bound - <T super SomeObject>
+3) using wild cards with generics - <? extends/super SomeObject>
+4) Unbound - <SomeObject>
+
+Lambda ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 Multi-Threading ---------------------------------------------------------------------------------------------------------------------------------------------------------
 run() vs start() - https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/
 
@@ -346,61 +401,6 @@ SQL turotials - https://www.w3schools.com/sql/default.asp
 JShell ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 JShell is used to test lines/methods without have a main class.
 Very useful for testing individual methods, lines/blocks of code without having class or creating objects of the class.
-
-Lambda ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-cmd ---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-javac xyz.java
-java xyz
-java -jar xyz.jar
-jar -tvf xyz.jar (tabulate the content of jar)
-jar -xvf xyz.jar (extract jar file)
-jar -cvf xyz.jar manifest.mf *.class (create jar file)
-
-Input ------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Scanner class - nextLine() reads next line as string, hasNextLine() returns boolean
-This class implements iterator<String> and Closeable interfaces.
-
-File class - used to send data from a file to a scanner.
-This class implements Comparable<File> and Serializable interface.
-There are plenty of methods to call to check - read permission, length, absolute path, is executable, etc.
-
-FileReader class - reads streams of characters and must be used along with BufferedReader class.
-This class extends InputStreamReader which extends Reader which implements Readable and Closeable interfaces.
-
-BufferedReader class - used to read character based input streams. Used to read line by line.
-This class extends Reader class.
-
-Hierarchy chart - http://javadevwannabe.blogspot.com/2012/02/reader-and-writer-classes.html
-
-Handling errors and exceptions -----------------------------------------------------------------------------------------------------------------------------------------
-
-NOTE - If a method throws Exception and if that method is referenced, it must be placed in a try catch block or the method in which it is invoked must
-throw (throws) Exception.
-
-Use try catch block with finally block. Finally block is used to do something that is required to be done after either successufully performing the task in try block or after
-catching an exception in the catch block.
-
-Java 1.7 introduces try with resources. This eliminates the requirement for finally block 99.99 times. Try block takes in arguments that implement closeable interface and hence
-those resources are automatically closed by java.
-
-Closeable interface extends AutoCloseable interface and overides the close() method.
-This method is used by java to automatically close the resources that are sent as parameters to the try block.
-Use cases - To close open streams of input and output, Databases, etc
-
-A class can implement Closeable interface and be referred to as a argument(resource) in a try block that can be automatically closed.
-Since the close() method of Closeable and AutoCloseable interface throws IOException and Exception respectedly, we must catch that exception in the implementing try block.
-
-Generics ----------------------------------------------------------------------------------------------------------------------------------------------------------------
-Generics is used to make the program type-safe and resort to errors at compile time.
-Using generics, we can force collections to store only specific type of Objects.
-Use of generics eliminates use of type-casting.
-Type of generics -
-1) Upper bound - <T extends SomeObject>
-2) Lower bound - <T super SomeObject>
-3) using wild cards with generics - <? extends/super SomeObject>
-4) Unbound - <SomeObject>
 
 Q and A ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 
