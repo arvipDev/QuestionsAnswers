@@ -113,6 +113,9 @@ Interface -
 	Many classes can implement the same interface.
 	Default and static methods with bodies are also permitted since Java 8. Static, private methods are also allowed since Java 9.
 	An interface can extend multiple interfaces but use extend keyword only once (using ",").
+	A method with definition inside the interface must be declared default or static.
+	If a method is declared default, it cant be private. But static methods can be both private and public.
+	Default methods can (but not required to) be overridden in the implementing class but static methods can not be overridden.
 }
 
 Static binding and Dynamic binding.
@@ -319,7 +322,47 @@ Type of generics -
 4) Unbound - <SomeObject>
 
 Lambda ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Functions vs Methods - Functions are independent methods, they do not belong to a class. It is associated to an instance of a class.
+Methods belong to a class and is associated to its instance.
+Anonymous class - These classes are created on the fly as arguments being passed on to a method. They are mostly an interface with an abstract method.
 
+Java 8 introduced functional programming, Lambda.
+Functional interface - These are interfaces with a single abstract method. They can however have multiple default, static methods
+Lambda expression can be substituted only in place of a functional interface.
+Lmabda can not be used in place of a class implementing multiple interfaces of which atleast one is a non-function interface. Because then it would
+have multiple overidden methods.
+NOTE - Any class with multiple overridden methods can not be substituted as a lambda expression.
+
+It is possible to create an object of the functional interface and assign a lambda function to it.
+Lambda can be used with generic functional interface to reduce the no of functional interface.
+Java function package provides a bunch of functional interfaces to be used by lambda functions instead of creating functional interfaces.
+
+NOTE - lambdas are used to provide custom functionality on the go using custom functional interfaces or the ones present in the java.util.function package.
+NOTE - Use anotations on functional interface @FunctionalInterface - This will throw an error if another abstract method is added to the interface. Good Practise.
+
+Streams -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Streams are used to perform tasks on collection of objects. It takes in collections, arrays or I/O channels as input.
+They dont change the original data structure, instead they give a result based on the requested actions performed on it.
+A stream is returned as result.
+
+There are 2 stages aftere input -
+
+1) Intermediate operation - there can be none, one or many methods being called in this stage.
+This stage is used to perform actions on the data set.
+.filter(lambda that uses Predicate<T>)
+.map(lambda function) this method acts as an iterator and traverses through collection.
+.sorted() takes no argument. If a custom object is to be sorted, the custom object must implement Comparable<custom class> interface.
+
+2) Termination operation - performs few actions by calling atleast one method.
+This stage is used to provide end result.
+.forEach()
+.collect()
+.reduce()
+
+stream() - single threaded stream.
+parallelStream() - Multi-threading on streams.
+
+In Depth coverage - https://stackify.com/streams-guide-java-8/
 
 Multi-Threading ---------------------------------------------------------------------------------------------------------------------------------------------------------
 run() vs start() - https://www.geeksforgeeks.org/difference-between-thread-start-and-thread-run-in-java/
