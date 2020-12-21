@@ -1,11 +1,13 @@
 package com.functions;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.function.Predicate;
 
 public class Lfunction {
     public static void main(String[] args) {
         //testOne();
-        testFour();
+        testSix();
     }
     private static void runner (Runnable runner) {
         runner.run();
@@ -62,12 +64,60 @@ public class Lfunction {
         System.out.println(rising2.rise("Arvind", "Purushotham"));
     }
 
+    private static void testFive () {
+        // Using java.util.function package, Predicate functional interface that returns a boolean type.
+        // Lambda function assigned to a java provided functional interface Predicate<T>
+        Predicate<Integer> predicate = (t) -> t >= 10;
+        System.out.println(predicate.test(12));
+    }
+
+    private static void testSix () {
+        List<Car> cars = Arrays.asList(
+                new Car(12000, "Black", 2019, "Ford"),
+                new Car(13500, "White", 2002, "BMW"),
+                new Car(8000, "Red", 2009, "Mercedes"),
+                new Car(23000, "Black", 2016, "Audi"),
+                new Car(18000, "White", 2000, "Ford"),
+                new Car(9500, "Grey", 1986, "GM")
+        );
+
+        Car car = new Car(12000, "Black", 2019, "Ford");
+
+        Predicate<Car> predicate = (c) -> {
+            Car car2 = doSomething(cars, car);
+            if (car2 == null) {
+                System.out.println("No such cars found");
+                return false;
+            }
+            System.out.println(car2.toString());
+            return true;
+        };
+        predicate.test(car);
+    }
+
+    private static Car doSomething(List<Car> cars, Car car) {
+        for (Car c: cars){
+            if (c.equals(car))
+                return c;
+        }
+        return null;
+    }
+
+
+
 }
 
+@FunctionalInterface
 interface Livable {
     public void live(String string);
 }
 
+@FunctionalInterface
 interface Rising <T, U, V> {
     public V rise(T t, U u);
+}
+
+@FunctionalInterface
+interface CarCondition<T, U> {
+    public boolean test(T t, U u);
 }
