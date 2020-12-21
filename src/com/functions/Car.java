@@ -2,7 +2,7 @@ package com.functions;
 
 import java.util.Objects;
 
-public class Car {
+public class Car{
     private int price;
     private String color;
     private int make;

@@ -7,7 +7,7 @@ import java.util.function.Predicate;
 public class Lfunction {
     public static void main(String[] args) {
         //testOne();
-        testSix();
+        testSeven();
     }
     private static void runner (Runnable runner) {
         runner.run();
@@ -95,6 +95,40 @@ public class Lfunction {
         predicate.test(car);
     }
 
+    private static void testSeven() {
+        List<Car> cars = Arrays.asList(
+                new Car(12000, "Black", 2019, "Ford"),
+                new Car(13500, "White", 2002, "BMW"),
+                new Car(8000, "Red", 2009, "Mercedes"),
+                new Car(23000, "Black", 2016, "Audi"),
+                new Car(18000, "White", 2000, "Ford"),
+                new Car(9500, "Grey", 1986, "GM")
+        );
+
+        Car car = new Car(12000, "Black", 2019, "Ford");
+
+        // Fetching all cars whose color matches that of the given car.
+        CarCondition<List<Car>, Car> carCondition = (t, u) -> {
+            for (Car c: t){
+                if (c.getColor().equals(u.getColor())){
+                    System.out.println(c.toString());
+                }
+            }
+            return false;
+        };
+        System.out.println(carCondition.test(cars, car));
+
+        // Fetching all cars whose price is greater than given cars price and lesser than 18000
+        CarCondition<List<Car>, Car> carCondition2 = (t, u) -> {
+            for (Car c: t) {
+                if (c.getPrice() <= 18000 && c.getPrice() >= u.getPrice())
+                    System.out.println(c.toString());
+            }
+            return false;
+        };
+        System.out.println(carCondition2.test(cars, car));
+    }
+
     private static Car doSomething(List<Car> cars, Car car) {
         for (Car c: cars){
             if (c.equals(car))
@@ -102,8 +136,6 @@ public class Lfunction {
         }
         return null;
     }
-
-
 
 }
 
