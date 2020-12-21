@@ -1,9 +1,11 @@
 package com.functions;
 
+import java.util.function.Predicate;
+
 public class Lfunction {
     public static void main(String[] args) {
         //testOne();
-        testThree();
+        testFour();
     }
     private static void runner (Runnable runner) {
         runner.run();
@@ -45,9 +47,27 @@ public class Lfunction {
         live.live("I am a survivor..");
     }
 
+    private static void testFour () {
+        // Using java generics, lambda function with arguments and return types and functional interface
+        Rising<Integer, Integer, String> riser = (t, u) -> {
+            int sum = t + u;
+            return "Sum of 2 numbers: " + t + " and " + u + " = " + sum;
+        };
+        System.out.println(riser.rise(5, 10));
+
+        Rising<String, String, String> rising2 = (t, u) -> {
+            String fin = t + " " + u;
+            return fin;
+        };
+        System.out.println(rising2.rise("Arvind", "Purushotham"));
+    }
+
 }
 
 interface Livable {
     public void live(String string);
 }
 
+interface Rising <T, U, V> {
+    public V rise(T t, U u);
+}
