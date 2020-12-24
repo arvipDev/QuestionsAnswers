@@ -1,6 +1,10 @@
 package com.exam;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Month;
 import java.time.Year;
 import java.util.ArrayList;
@@ -8,8 +12,8 @@ import java.util.List;
 
 public class Prep {
 
-    public static void main(String[] args) {
-        q5();
+    public static void main(String[] a) {
+        q10();
     }
     private static void q1 () {
 
@@ -84,5 +88,43 @@ public class Prep {
     private static void change(Student student){
         student = new Student("abc", 88);
     }
-    // private static void q2 () {}
+
+    private static void q6 () {
+        LocalTime lc = LocalTime.of(16, 40);
+        String amPm = lc.getHour() >= 12 ? (lc.getHour() == 12) ? "AM" : "PM": "PM";
+        System.out.println(amPm);
+    }
+
+    private static void q7 (){
+        do {
+            System.out.println(100);
+        } while (false);
+        System.out.println("Out");
+    }
+
+    private static void q8 () {
+        char var = 7;
+        switch (var){
+            case 7:
+                System.out.println("Some var 7");
+                break;
+            default:
+                System.out.println("Not print var");
+        }
+    }
+
+    private static void q9 () {
+        List<Character> list1 = new ArrayList<>();
+        list1.add('A');
+        list1.add('D');
+        List<Character> list2 = new ArrayList<>();
+        list2.add('B');
+        list2.add('C');
+        list1.addAll(1, list2);
+        System.out.println(list1);
+    }
+    private static void q10 () {
+        LocalDate ll = LocalDate.of(2020, 9, 31);
+        System.out.println(ll);
+    }
 }
