@@ -3,17 +3,16 @@ package com.exam;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.time.LocalDate;
-import java.time.LocalTime;
-import java.time.Month;
-import java.time.Year;
+import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static java.lang.Integer.valueOf;
 
 public class Prep {
 
     public static void main(String[] a) {
-        q10();
+        q13();
     }
     private static void q1 () {
 
@@ -127,4 +126,43 @@ public class Prep {
         LocalDate ll = LocalDate.of(2020, 9, 31);
         System.out.println(ll);
     }
+
+    private static void q11 () {
+        while(true){
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            LocalDateTime obj = LocalDateTime.now();
+            System.out.println(obj.getSecond());
+        }
+    }
+
+    private static void q12 (){
+        int i = 'm';
+        m(i);
+        char m = 'm';
+        m(m);
+    }
+
+    private static void m (int m) {
+        System.out.println(m);
+        System.out.println("int version");
+    }
+    private static void m (char m) {
+        System.out.println(m);
+        System.out.println("char version");
+    }
+
+    private static void q13(){
+        LocalDate neeYear = LocalDate.of(2018, 1, 1);
+        LocalDate christmas = LocalDate.of(2018, 12, 25);
+        Boolean f1 = neeYear.isAfter(christmas);
+        Boolean f2 = neeYear.isBefore(christmas);
+        System.out.println(f1 + " " + f2);
+    }
+
+    private static void q14(){}
 }
+
