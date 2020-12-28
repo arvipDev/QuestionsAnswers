@@ -6,13 +6,14 @@ import java.io.FileReader;
 import java.time.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 import static java.lang.Integer.valueOf;
 
 public class Prep {
 
     public static void main(String[] a) {
-        q13();
+        q15();
     }
     private static void q1 () {
 
@@ -163,6 +164,36 @@ public class Prep {
         System.out.println(f1 + " " + f2);
     }
 
-    private static void q14(){}
+    private static void q14(){
+        Period per = Period.of(0, 0, 0);
+        System.out.println(per);
+    }
+    private static void q15(){
+        String[] arr = {"a", "Aaa", "AAA", "ABBA", "Bsw", "bss", "AaA"};
+        Predicate<String> pred = s -> s.toUpperCase().startsWith("A");
+        someTest(arr, pred);
+    }
+
+    private static void someTest (String[] arr, Predicate<String> predicate) {
+        for (String s: arr){
+            if (predicate.test(s))
+                System.out.println(s);
+        }
+    }
+}
+
+interface Something {
+    public void aaa();
+    public void bbb();
+}
+
+abstract class Onething implements Something {
+    @Override
+    public void aaa() {}
+}
+
+class Everything extends Onething{
+    @Override
+    public void bbb() {}
 }
 
