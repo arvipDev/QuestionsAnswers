@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
@@ -13,7 +15,7 @@ import static java.lang.Integer.valueOf;
 public class Prep {
 
     public static void main(String[] a) {
-        q15();
+        q20();
     }
     private static void q1 () {
 
@@ -174,6 +176,53 @@ public class Prep {
         someTest(arr, pred);
     }
 
+    private static void q16(){
+        Student st = new Student("Arvind", 29);
+        st.argi = "P";
+        System.out.println(st.argi);
+        ss(st, "urushotham");
+        System.out.println(st.argi);
+    }
+
+    private static void ss(Student student, String last){
+        student.argi += last;
+    }
+
+    private static void q17(){
+        int[] args = new int[] {50, 50};
+        args[0] = 5;
+        args[1] = 10;
+        System.out.println(args[0] + " " + args[1]);
+    }
+
+    private static void q18(){
+        OTG otg = new OTG(128, "Type-C");
+        System.out.println(otg.size + " " + otg.type);
+    }
+
+    private static void q19(){
+        List<Integer> list = new ArrayList<>();
+/*        list.add(new Integer(2));
+        list.add(new Integer(1));
+        list.add(new Integer(0));*/
+
+        //list.remove(list.indexOf(0));
+        System.out.println(list);
+    }
+
+    private static void q20() {
+        LocalDate ld = LocalDate.of(2012, 1, 11);
+        Period period = Period.ofMonths(2);
+        System.out.println(period);
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd-MM-yy");
+        System.out.println(dtf.format(ld.minus(period)));
+
+        Period p2 = Period.ofDays(24);
+        Temporal temp = p2.addTo(LocalDate.now());
+        System.out.println(temp);
+        System.out.println(temp.minus(p2));
+    }
+
     private static void someTest (String[] arr, Predicate<String> predicate) {
         for (String s: arr){
             if (predicate.test(s))
@@ -192,8 +241,25 @@ abstract class Onething implements Something {
     public void aaa() {}
 }
 
-class Everything extends Onething{
-    @Override
-    public void bbb() {}
+class Drive {
+    int size;
+    Drive(int size){
+        this.size = size;
+    }
 }
+
+class OTG extends Drive{
+    String type;
+    String make;
+    OTG (int size, String type) {
+        super(size);
+        this.type = type;
+    }
+    OTG (String make){
+        super(128);
+        this.make = make;
+    }
+}
+
+
 

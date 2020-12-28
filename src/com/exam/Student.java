@@ -3,6 +3,7 @@ package com.exam;
 import java.util.Objects;
 
 public class Student {
+    String argi = "I am";
     private String name;
     private int age;
 
