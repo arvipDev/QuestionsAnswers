@@ -5,15 +5,15 @@ import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
 
 import static java.lang.Integer.valueOf;
 
 public class Prep {
-
     public static void main(String[] a) {
-        q24();
+        q25();
     }
     private static void q1 () {
 
@@ -265,16 +265,40 @@ public class Prep {
         System.out.println(list);
     }
     private static void q24(){
-        Student student = new Student("Arvind", 29);
-        q25(student);
-        System.out.println(student);
+        String fruit = "mango";
+        switch (fruit){
+            case "Mango":
+                System.out.println("Mango");
+            case "Apple":
+                System.out.println("Apple");
+            case "Banana":
+                System.out.println("Banana");
+            default:
+                System.out.println("All fruits are available");
+                float f = 0;
+                System.out.println(f);
+                break;
+        }
     }
-    private static void q25(Student student){
-        //student = new Student("Sneha", 29);
-        //System.out.println(student);
-        student.setName("Sneha");
-    }
+    private static void q25(){
+        // Should not remove/add item using collections methods when iterator is in use. Must use iterator's
+        // remove/add methods.
+        List<String> list = new ArrayList<>();
+        list.add("Apple");
+        list.add("Mango");
+        list.add("Banana");
+        list.add("Pineapple");
 
+        Iterator<String> iterate = list.iterator();
+        while (iterate.hasNext()){
+            String fruit = iterate.next();
+            if (fruit.charAt(0) == 'A')
+                iterate.remove();
+                //list.remove(fruit);
+        }
+        System.out.println(list);
+
+    }
     private static void q26(){}
 }
 
