@@ -1,8 +1,6 @@
 package com.exam;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.*;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.Temporal;
@@ -15,7 +13,7 @@ import static java.lang.Integer.valueOf;
 public class Prep {
 
     public static void main(String[] a) {
-        q20();
+        q24();
     }
     private static void q1 () {
 
@@ -229,6 +227,55 @@ public class Prep {
                 System.out.println(s);
         }
     }
+
+    private static void q21(){
+        Super sup = new Sup();
+        try {
+            sup.m1();
+        } catch (FileNotFoundException e){
+            System.out.println("N");
+        } catch (IOException e) {
+            System.out.println("M");
+        } finally {
+            System.out.println("M");
+        }
+    }
+
+    private static void q22(){
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Arvind", 29));
+
+        ArrayList<Student> newStudents = (ArrayList<Student>) students.clone();
+        newStudents.get(0).setName("Sneha");
+
+        System.out.println(students);
+        System.out.println(newStudents);
+    }
+
+    private static void q23(){
+        // Strings are immutable.
+
+        String name = "Hello";
+        List<String> list = new ArrayList<>();
+        list.add(name);
+        list.add(name.replace("l", "L"));
+        list.add(name);
+        name = name.replace("l", "L");
+        list.add(name);
+        System.out.println(list);
+    }
+    private static void q24(){
+        Student student = new Student("Arvind", 29);
+        q25(student);
+        System.out.println(student);
+    }
+    private static void q25(Student student){
+        //student = new Student("Sneha", 29);
+        //System.out.println(student);
+        student.setName("Sneha");
+    }
+
+    private static void q26(){}
 }
 
 interface Something {
@@ -258,6 +305,18 @@ class OTG extends Drive{
     OTG (String make){
         super(128);
         this.make = make;
+    }
+}
+
+abstract class Super {
+    public abstract void m1() throws IOException;
+}
+
+class Sup extends Super {
+
+    @Override
+    public void m1() throws IOException {
+        throw new FileNotFoundException();
     }
 }
 
