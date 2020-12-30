@@ -13,7 +13,11 @@ import static java.lang.Integer.valueOf;
 
 public class Prep {
     public static void main(String[] a) {
-        q25();
+        //q26();
+        String s1 = "Java";
+        StringBuilder sb = new StringBuilder("Java");
+        System.out.println(s1.equals(sb) + " : " + sb.equals(s1));
+
     }
     private static void q1 () {
 
@@ -289,6 +293,7 @@ public class Prep {
         list.add("Banana");
         list.add("Pineapple");
 
+
         Iterator<String> iterate = list.iterator();
         while (iterate.hasNext()){
             String fruit = iterate.next();
@@ -299,7 +304,12 @@ public class Prep {
         System.out.println(list);
 
     }
-    private static void q26(){}
+    private static void q26(){
+        StringBuilder sb = new StringBuilder("Java");
+        String s1 = sb.toString();
+        String s2 = sb.toString();
+        System.out.println(s1 == s2);
+    }
 }
 
 interface Something {
