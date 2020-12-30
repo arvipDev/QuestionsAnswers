@@ -1,0 +1,90 @@
+Java practise test 1 --------
+
+1) Compile time error - Detected while writing code, usually syntax error. Can be fixed while coding
+   Runtime error - Detected while running the code. These has to do with exceptions. Can not be fixed the programm completes running.
+
+2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique.Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
+
+3) If we call the main method inside the main method - Stack over flow error occurs as the main method is called repeatedly without completion of execution.
+
+4) array declarations -
+int [] arr[] = new int[size][]
+int arr[][] = new int[size][]
+int[][] arr = new int[size][]
+int[] arr = new int[size]
+int arr[] = new int[size]
+int arr[] = new int[] {val1, val2} // only 2 elements can be assigned to this array
+int[] arr = new int[] {val1, val2} // only 2 elements can be assigned to this array
+
+NOTE int[] array is java-style, int arr[] is C-style of array declaration.
+
+5) Checked vs Unchecked exceptions - Checked exceptions are the ones IDE recognises and gives out suggestions to modify without which a compile time error is thrown. Syntax error, IOException,
+Unchecked exceptions are thise exceptions that occur during runtime such as ArrayOutOfBound, StackOverFlow, NullPointerException, etc
+
+6) Local Date and time are final classes and they can not be extended. Period is also a final class.
+Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
+
+7) If an interface is implemented by an abstract class, it need not override methods declared in the interface but the class extending the abstract class must override methods of the interface or few methods can be overriden in the abstract class and the rest can be overriden in the extending class.
+If a class implements an interface, it must override all the methods of the interface.
+
+8) Access modifier not defined will be package protected, visible only within package.
+Objects can be modified by passing it to another method.
+
+9) If the parent class has an overloading constructor, the child class MUST call super(parameter) method in its constructor. The parameter entered must match the variable type taken by the parent class constructor.
+
+10) In catch clause of try-catch block, FileNotFound exception must be caught first followed by IOException. There is an hirarchy followed for catch clause.
+
+11) Access modifiers and static keyword in method definition can be interchanged.
+
+12) While using if else-if condition, variable declared outside the condition without initialization and refered to after the condition will throw a compile-time exception.
+Because - there is a possibility that the variable may not be assigned any value and since it is not initialized, it will be an empty variable in the stack.
+
+13) Strings are immutable. A string can not be edited and the referring object will not refer to th eupdated string.
+StringBuilder does not override equals() method. String and StringBuilder overrides toString() method.
+
+14) Parameters - If an object is passed as parameter, it is pass-by-reference.
+If primitive types are passed as parameters, it is pass-by-value.
+
+15) Constructors are not of void return type.
+We can have methods with the same name as class with void return type and these are not constructors.
+
+16) Static blocks are executed when the class is being loaded onto JVM. psvm method is called later, after the class is loaded on to the JVM.
+If static block throws an exception or if it is in an infinite loop, psvm method will not be executed.
+static blocks can be used to initialize the class before main method is called.
+
+17) Switch statement needs break statement for every case without which the flow would continue to the following case till it reaches a break statement or end of switch statement.
+If default is placed at the begining of switch statement and there are no matching case and break statement, all the cases would be executed starting with default.
+If default is placed at the end of switch statement and there are no matching case and break statement, default would be executed and end of switch statement would be reached.
+
+VERY TRICKY
+18) Strings assigned a constant expression such as "string literals or final" will be computed at "compile-time". All strings computed at compile time will be refered by "String pool"
+These string objects in string pool with not have duplicates and in the following case, they are refered to as a single object.
+String s1 = "Arvind";
+String s2 = "Arvind" + "";
+Both s1 and s2 variables refer to "Arvind" with in the string pool as they are computed at compile time.
+Therefore, s1 == s2 will be true.
+If s2 = s1 + ""; then s2 will be computed at run-time since it is a dynamic variable. Therefore, in this case, s1 == s2 will be false.
+
+NOTE
+19) Parent class can not be assigned to a child class object using casting. It will throw a run-time exception - ClassCastException.
+
+20) An empty array of a given size is filled with "null".
+
+21) While using iterator, we should avoid modifying the collections. If there is an absolute need to modify the collections, it should be done using the iterator.add and remove
+methods and not using the colections.add or remove methods as it will result in ConcurrentModificationException.
+
+12) If a class "One" extends another class "Two" from a different package and there are 2 variables of which one is protected. We must use this. or super. to access that protected variable if getters are not available.
+
+NOTE - what is sent to parameter of main method.
+13) Using cmd for compiling and running a program, javac Name.java - compiles the java file.
+java Name One Two Three - Here One, Two and Three are the arguments passed on to the main method's parameters.
+It can be assessed inside the main method using the usual array operations.
+
+
+
+
+
+
+
+
+

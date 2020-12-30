@@ -8,16 +8,21 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Predicate;
+import java.lang.Error;
 
 import static java.lang.Integer.valueOf;
+
+class Dum {
+    static void main (String[] args) {
+        System.out.println("Me " + args[2]);
+    }
+}
+
 
 public class Prep {
     public static void main(String[] a) {
         //q26();
-        String s1 = "Java";
-        StringBuilder sb = new StringBuilder("Java");
-        System.out.println(s1.equals(sb) + " : " + sb.equals(s1));
-
+        Dum.main(a);
     }
     private static void q1 () {
 
