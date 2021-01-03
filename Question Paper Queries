@@ -73,10 +73,10 @@ NOTE
 21) While using iterator, we should avoid modifying the collections. If there is an absolute need to modify the collections, it should be done using the iterator.add and remove
 methods and not using the colections.add or remove methods as it will result in ConcurrentModificationException.
 
-12) If a class "One" extends another class "Two" from a different package and there are 2 variables of which one is protected. We must use this. or super. to access that protected variable if getters are not available.
+22) If a class "One" extends another class "Two" from a different package and there are 2 variables of which one is protected. We must use this. or super. to access that protected variable if getters are not available.
 
 NOTE - what is sent to parameter of main method.
-13) Using cmd for compiling and running a program, javac Name.java - compiles the java file.
+23) Using cmd for compiling and running a program, javac Name.java - compiles the java file.
 java Name One Two Three - Here One, Two and Three are the arguments passed on to the main method's parameters.
 It can be assessed inside the main method using the usual array operations.
 
