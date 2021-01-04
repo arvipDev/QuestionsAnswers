@@ -39,7 +39,6 @@ public class Bitwiseop {
         result = -8 >>> 2;
         // unsigned right shift twice -8 = large number
         System.out.println(result);
-
     }
 
 }

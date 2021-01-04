@@ -4,7 +4,7 @@ Arithmetic Operators
 Unary Arithmetic Operators (++, --)
 Relational Operators
 Logical Operators (&&, ||, !)
-Bitwise Operators (&, |, ^, ~, <<, >>, >>>)
+Bitwise Operators (&, |, ^, ~, <<, >>, >>>) (~ = -(n+1))
 Assignment Operators (=)
 Compound Assignment Operators (+=, -=, *=, /=, <<=, >>=, &=, etc)
 Conditional Operator (a==b ? true:false)
@@ -23,8 +23,15 @@ char = 16 bits
 boolean = 8 bits
 Strings - as big as the memory. They are immutable - can not modify a string instead a new string is created everytime it is called/modified and the old one gets discarded. But StringBuffer lets you modify a string
 
-Mammal -> Animal -> Dog and Cat
+NOTE - Very important
+Widening Casting - This is done automatically. When a smaller size capacity type is assigned to bigger size capacity type.
+byte -> short -> int -> char -> float -> long -> double.
 
+Narrowing Casting - This needs to be done manually. When a bigger size capacity type is assigned to smaller size capacity type.
+double -> long -> float -> int -> char -> short -> byte.
+NOTE - this can be observed in a parent-child model as well. Type casting is required while assigning a parent object to a child.
+
+Mammal -> Animal -> Dog and Cat
 Upcasting
 Cat c = new Cat();
 Animal a = c (Upcasting - it is automatic, no need of typecasting)
@@ -102,7 +109,7 @@ Abstract Class -
 	When an instance of a class that extends abstract class is created, the constructor of abstract class is called.
 	An abstract class can be created without any abstract methods.
 	An abstract class can have final method.
-	An abstract method cant be final.
+	An abstract method can not be final.
 	If we derive an abstract class and do not implement all the abstract methods, then the derived class should also be marked as abstract class.
 }
 
