@@ -5,6 +5,7 @@ import java.io.IOException;
 public abstract class Parent {
 
     private String name;
+
     Parent(String name) {
         this.name = name;
     }

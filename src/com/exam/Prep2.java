@@ -99,8 +99,8 @@ public class Prep2 {
         long j = 100_001;
         double d = 10_0.35d;
         float f = 100_0f;
-        System.out.println(i);
-        System.out.println(j);
+
+        f = i * j * f;
 
         j = os + j;
         System.out.println(j);
