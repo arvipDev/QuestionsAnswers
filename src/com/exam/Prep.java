@@ -1,6 +1,9 @@
 package com.exam;
 
+import com.database.Tester;
+
 import java.io.*;
+import java.lang.reflect.Array;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.Temporal;
@@ -22,8 +25,20 @@ class Dum {
 public class Prep {
     public static void main(String[] a) {
         //q26();
-        Dum.main(a);
+        //Dum.main(a);
+        //q30();
     }
+
+    private static void q30 () {
+        ArrayList<Student> students = new ArrayList<>();
+        students.add(new Student("Arvind", 29));
+        ArrayList<Student> newStudent = (ArrayList<Student>) students.clone();
+        newStudent.get(0).age = 30;
+        System.out.println(students.get(0).age);
+        Tester test = new Tester();
+        Tester2 t2 = (Tester2) test;
+    }
+
     private static void q1 () {
 
         int a = 100;

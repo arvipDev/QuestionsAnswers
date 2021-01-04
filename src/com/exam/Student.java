@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Student {
     String argi = "I am";
     private String name;
-    private int age;
+    public int age;
 
     public String getName() {
         return name;
@@ -16,6 +16,7 @@ public class Student {
     }
 
     public Student(String name, int age) {
+        super();
         this.name = name;
         this.age = age;
     }
