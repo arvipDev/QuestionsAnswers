@@ -1,8 +1,17 @@
 package com.exam;
 
-public class Parent {
+import java.io.IOException;
 
-    Parent() {
+public abstract class Parent {
 
+    private String name;
+    Parent(String name) {
+        this.name = name;
     }
+
+    public void print(){
+        System.out.println("Parent class - " + name);
+    }
+
+    public abstract void test() throws IOException;
 }

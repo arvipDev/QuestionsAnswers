@@ -1,14 +1,62 @@
 package com.exam;
 import com.exceptions.Student;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Prep2 {
+
     public static void main(String[] args) {
-        //q5();
+        //q8();
+
+    }
+
+    private static void q9(){
+        int v1 = 100;
+        int v2 = 100;
+        Integer v3 = 100;
+        Integer v4 = 100;
+        System.out.println((v1 == v2) + " " + (v3 == v4));
+    }
+
+    private static void q8() {
+        LocalDate d1 = LocalDate.parse("1999-01-01");
+        LocalDate d2 = LocalDate.parse("1999-01-01");
+        LocalDate d3 = LocalDate.of(1999, 1, 1);
+        LocalDate d4 = LocalDate.of(1999, 1, 1);
+        System.out.println(d1);
+        System.out.println(d2);
+        System.out.println(d3);
+        System.out.println(d4);
+        System.out.println((d1 == d2) + " " + (d2 == d3) + " " + (d3 == d4));
+        System.out.println((d1.equals(d2)) + " " + (d2.equals(d3)) + " " + (d3.equals(d4)));
+        System.out.println((d1.isEqual(d2)) + " " + (d2.isEqual(d3)) + " " + (d3.isEqual(d4)));
+    }
+
+    private static void q7(){
+        List<Integer> i = new ArrayList<>();
+        i.add(100);
+        i.add(200);
+        i.add(100);
+        i.add(200);
+        i.remove(new Integer(100));
+        System.out.println(i);
+    }
+
+    private static void q6(){
+        List<String> list = new ArrayList<>();
+        list.add("X");
+        list.add("Y");
+        list.add("Z");
+        list.add("Y");
+        list.add("X");
+        System.out.println(list.size());
+        list.remove(new String("Y"));
+        System.out.println(list);
     }
 
     private static void q5(){
@@ -29,7 +77,7 @@ public class Prep2 {
     }
 
     private static void q3(){
-        q3(10.0, new Integer(10));
+        q3(10.0, 10);
     }
     private static void q3(Double d1, Double d2){
         System.out.println("Double " + (d1 + d2));
