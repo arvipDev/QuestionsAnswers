@@ -11,8 +11,45 @@ import java.util.List;
 public class Prep2 {
 
     public static void main(String[] args) {
-        //q8();
+        //q12(null);
+        q10();
+    }
 
+    private static void q12(Object o){
+        System.out.println("Object " + o);
+    }
+
+    private static void q12(CharSequence o){
+        System.out.println("CharSequence " + o);
+    }
+
+    private static void q12(String o){
+        System.out.println("String " + o);
+    }
+    private static void q12(StringBuilder o){
+        System.out.println("StringBuilder " + o);
+    }
+
+
+    private static void q11() {
+        int a = 2;
+        Boolean bol = false;
+        bol = a++ == 2 || --a == 2 && --a == 2;
+        System.out.println(a);
+        System.out.println(bol);
+    }
+
+    private static void q10(){
+        //Tricky question.
+        List<Integer> list = new ArrayList<>();
+        list.add(27);
+        list.add(27);
+        //list.add(new Integer(27));
+        //list.add(new Integer(27));
+        System.out.println(list.get(0) == list.get(1));
+        System.out.println(list.get(2) == list.get(3));
+        System.out.println(list.get(0).equals(list.get(1)));
+        System.out.println(list.get(2).equals(list.get(3)));
     }
 
     private static void q9(){
@@ -124,3 +161,5 @@ public class Prep2 {
         System.out.println(f);
     }
 }
+
+
