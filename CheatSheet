@@ -25,10 +25,10 @@ Strings - as big as the memory. They are immutable - can not modify a string ins
 
 NOTE - Very important
 Widening Casting - This is done automatically. When a smaller size capacity type is assigned to bigger size capacity type.
-byte -> short -> int -> char -> float -> long -> double.
+byte -> short -> char -> int -> long -> float -> double.
 
 Narrowing Casting - This needs to be done manually. When a bigger size capacity type is assigned to smaller size capacity type.
-double -> long -> float -> int -> char -> short -> byte.
+double -> float -> long -> int -> char -> short -> byte.
 NOTE - this can be observed in a parent-child model as well. Type casting is required while assigning a parent object to a child.
 
 Mammal -> Animal -> Dog and Cat

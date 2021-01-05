@@ -4,8 +4,10 @@ Java practise test 1 --------
    Runtime error - Detected while running the code. These has to do with exceptions. Can not be fixed the programm completes running.
 
 2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique.Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
+NOTE - remove(Object) will return boolean. remove(index) will return removed object.
 
 3) If we call the main method inside the main method - Stack over flow error occurs as the main method is called repeatedly without completion of execution.
+args array is of length 0. If the class is compiled and called using cmd, then we can add items to args array of main method.
 
 4) array declarations -
 int [] arr[] = new int[size][]
@@ -23,6 +25,7 @@ Unchecked exceptions are thise exceptions that occur during runtime such as Arra
 
 6) Local Date and time are final classes and they can not be extended. Period is also a final class.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
+To check if 2 LocalDate objects are equal, use .isEquals(LocalDate) method. == and .equals() will not give accurate result.
 
 7) If an interface is implemented by an abstract class, it need not override methods declared in the interface but the class extending the abstract class must override methods of the interface or few methods can be overriden in the abstract class and the rest can be overriden in the extending class.
 If a class implements an interface, it must override all the methods of the interface.
@@ -39,7 +42,7 @@ Objects can be modified by passing it to another method.
 12) While using if else-if condition, variable declared outside the condition without initialization and refered to after the condition will throw a compile-time exception.
 Because - there is a possibility that the variable may not be assigned any value and since it is not initialized, it will be an empty variable in the stack.
 
-13) Strings are immutable. A string can not be edited and the referring object will not refer to th eupdated string.
+13) Strings are immutable. A string can not be edited and the referring object will not refer to the updated string.
 StringBuilder does not override equals() method. String and StringBuilder overrides toString() method.
 
 14) Parameters - If an object is passed as parameter, it is pass-by-reference.
@@ -79,6 +82,11 @@ NOTE - what is sent to parameter of main method.
 23) Using cmd for compiling and running a program, javac Name.java - compiles the java file.
 java Name One Two Three - Here One, Two and Three are the arguments passed on to the main method's parameters.
 It can be assessed inside the main method using the usual array operations.
+
+24) List can have any number of null.
+
+25) COnstructors can have either super(value) or this(value) and not both of them. They must be the first statement inside a child's constructor.
+If a class does not extend any other class and if super() method without any argument is called, the super is referring to the Object class's constructor.
 
 
 
