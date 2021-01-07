@@ -9,8 +9,24 @@ import java.util.List;
 public class Tester3 {
 
     public static void main(String[] args) {
-        q3();
+        //q3();
+        int[] b = new int[2];
+        System.out.println(b[0] + " " + b[1]);
 
+        List<Boolean>  bb = new ArrayList<>();
+        bb.add(null);
+        bb.add(null);
+        System.out.println(bb.get(0) + " " + bb.get(1));
+    }
+
+    private static void q4(){
+        try {
+            System.out.println(1);
+        } catch (NullPointerException e){
+            System.out.println("A");
+        } //catch (FileNotFoundException e){
+          //  System.out.println("B");
+       // }
     }
 
     private static void q3() {
