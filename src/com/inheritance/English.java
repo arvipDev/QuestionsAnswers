@@ -1,10 +1,10 @@
 package com.inheritance;
 
 public class English extends Word{
-    @Override
+/*    @Override
     public void print() {
         System.out.println("Z interface abstract method in English class");
-    }
+    }*/
 
     @Override
     void wording() {

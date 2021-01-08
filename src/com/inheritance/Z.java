@@ -2,14 +2,21 @@ package com.inheritance;
 
 public interface Z {
 
-    void print();
     default void dosomething(){
-        some();
+        System.out.println("Z");
     }
+/*
+    void print();
     static void something(){
 
     }
     private void some(){
 
     }
+    private static void can(){
+
+    }
+    public static void ran(){
+
+    }*/
 }

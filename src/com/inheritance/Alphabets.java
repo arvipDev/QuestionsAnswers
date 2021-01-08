@@ -1,10 +1,10 @@
 package com.inheritance;
 
 public class Alphabets implements X, Y, Z {
-    @Override
+/*    @Override
     public void print() {
 
-    }
+    }*/
 
     @Override
     public void dosomething() {
