@@ -1,14 +1,26 @@
 package com.exam;
 
 import java.io.*;
+import java.sql.SQLClientInfoException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tester3 {
+public class Tester3{
     public static void main(String[] args) {
-        q9();
+        //q9();
+        Child c = new Child("Arvind");
+        c.print();
+        try {
+            sss();
+        } catch (SQLClientInfoException throwables) {
+            System.out.println("Here");
+        }
+    }
+
+    private static void sss() throws SQLClientInfoException{
+        throw null;
     }
 
     private static void q9(){

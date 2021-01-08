@@ -2,7 +2,7 @@ package com.exam;
 
 import java.io.IOException;
 
-public abstract class Parent {
+public abstract class Parent{
 
     private String name;
 

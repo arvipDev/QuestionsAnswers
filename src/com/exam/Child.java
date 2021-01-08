@@ -3,7 +3,7 @@ package com.exam;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-public class Child extends Parent {
+public class Child extends Parent{
 
     private String name;
 
