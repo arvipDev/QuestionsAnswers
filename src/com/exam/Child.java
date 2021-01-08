@@ -19,5 +19,4 @@ public class Child extends Parent {
     public void test() throws IOException {
         throw new FileNotFoundException();
     }
-
 }

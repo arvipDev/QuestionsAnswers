@@ -14,5 +14,9 @@ public abstract class Parent {
         System.out.println("Parent class - " + name);
     }
 
+    protected void doing(){
+
+    }
+
     public abstract void test() throws IOException;
 }

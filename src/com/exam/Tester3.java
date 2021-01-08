@@ -7,9 +7,34 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tester3 {
-
     public static void main(String[] args) {
-        //q3();
+        q9();
+    }
+
+    private static void q9(){
+        int x = 5;
+        int y = 10;
+        int z = ++x * y--;
+        System.out.println(z);
+        System.out.println("1 + 2 = " + 1 + 2);
+        System.out.println("aaaa" + 1 + 2);
+        System.out.println("1 + 2 = " + (1 + 2));
+    }
+
+    private static void q8(){
+        int a = 7;
+        boolean bol = a++ == 7 && ++a == 9 || a++ == 9;
+        System.out.println(bol + " a: " + a);
+    }
+
+    private static void q7() {
+        List<String> s = new ArrayList<>(4);
+        s.add(0, "AAA");
+        s.add(4, "BBB");
+        System.out.println(s);
+    }
+
+    private static void q6() {
         int[] b = new int[2];
         System.out.println(b[0] + " " + b[1]);
 
@@ -17,6 +42,18 @@ public class Tester3 {
         bb.add(null);
         bb.add(null);
         System.out.println(bb.get(0) + " " + bb.get(1));
+    }
+
+    private static void q5(){
+        final boolean flag;
+        flag = false;
+        while (flag){
+            System.out.println("Do something");
+        }
+
+        double col = 5.7;
+        Double dd = 6.7;
+        System.out.println(col + " " + dd);
     }
 
     private static void q4(){
