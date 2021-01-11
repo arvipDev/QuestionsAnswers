@@ -1,10 +1,24 @@
 package com.inheritance;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class App {
+
+    static int and = 10;
     public static void main(String[] args) {
+        //new App().staticVariableCall();
+        staticCall();
+    }
 
+    private static void staticCall(){
+        // static variable in interface being accessable using reference variable
+        Z z = new XYZ();
+        System.out.println(z.name);
+    }
 
-
+    private void staticVariableCall(){
+        System.out.println(this.and);
     }
 
     private static void aaa () {
