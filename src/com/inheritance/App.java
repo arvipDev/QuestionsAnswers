@@ -2,16 +2,24 @@ package com.inheritance;
 
 public class App {
     public static void main(String[] args) {
-        Word.lang();
-        Alphabets eng = new English();
-        //eng.print();
-        //eng.wording();
-        eng.dosomething();
 
-        Z z = new XYZ();
-        z.dosomething();
-        bbb("AAA", "ACC");
 
+
+    }
+
+    private static void aaa () {
+        int aa = 10;
+        double bb = 20;
+        aa = (int)bb;
+        System.out.println(aa);
+        byte vv = 8;
+        short xx = 10;
+        xx = vv;
+        System.out.println(xx);
+        xx = 1500;
+        System.out.println(xx);
+        vv = (byte)xx;
+        System.out.println(vv);
     }
 
     private static void bbb(String... arg) {

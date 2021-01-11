@@ -1,6 +1,6 @@
 package com.inheritance;
 
-public class Alphabets implements X, Y, Z {
+public class Alphabets implements X, Y, Z{
 /*    @Override
     public void print() {
 
