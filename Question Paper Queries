@@ -5,6 +5,7 @@ Java practise test 1 --------
 
 2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique.Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
 NOTE - remove(Object) will return boolean. remove(index) will return removed object.
+removeIf(Predicate<T> p) traverses through the list and removes all the items that satisfies the condition mentioned in the predicate. It returns a boolean.
 
 3) If we call the main method inside the main method - Stack over flow error occurs as the main method is called repeatedly without completion of execution.
 args array is of length 0. If the class is compiled and called using cmd, then we can add items to args array of main method.
@@ -21,11 +22,19 @@ int[] arr = new int[] {val1, val2} // only 2 elements can be assigned to this ar
 NOTE int[] array is java-style, int arr[] is C-style of array declaration.
 
 5) Checked vs Unchecked exceptions - Checked exceptions are the ones IDE recognises and gives out suggestions to modify without which a compile time error is thrown. Syntax error, IOException,
-Unchecked exceptions are thise exceptions that occur during runtime such as ArrayOutOfBound, StackOverFlow, NullPointerException, etc
+Unchecked exceptions are those exceptions that occur during runtime such as ArrayOutOfBound, StackOverFlow, NullPointerException, etc
+Checked exception can not be caught without having a code in try block that is vulnarable for that exception. If a checked exception is caught using try-catch without any part of code in try block that might result in causing that exception, a compilation error occurs.
+NOTE - Exception and Error are both subclass of Throwable class.
+RuntimeException, Error and all their subclasses are Unchecked exceptions.
+All other subclass of Throwable class is checked exception.
+https://www.benchresources.net/interview-question-and-answer-on-exception-handling-in-java/
 
 6) Local Date and time are final classes and they can not be extended. Period is also a final class.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
 To check if 2 LocalDate objects are equal, use .isEquals(LocalDate) method. == and .equals() will not give accurate result.
+M represents Month, m rep minutes, D rep Day of the year, d rep day of the month.
+LocalDate. LocatTime, LocalDateTime and Period is immutable.
+LocalDate. LocatTime, LocalDateTime and Period constructor is private. Objects of LocalDate, LocatTime, LocalDateTime and Period can not be created using new keyword.
 
 7) If an interface is implemented by an abstract class, it need not override methods declared in the interface but the class extending the abstract class must override methods of the interface or few methods can be overriden in the abstract class and the rest can be overriden in the extending class.
 If a class implements an interface, it must override all the methods of the interface.
@@ -34,19 +43,29 @@ If a class implements an interface, it must override all the methods of the inte
 Objects can be modified by passing it to another method.
 
 9) If the parent class has an overloading constructor, the child class MUST call super(parameter) method in its constructor. The parameter entered must match the variable type taken by the parent class constructor.
+A constructor can call another constructor using this(value) and not by calling the constructor by name.
 
-10) In catch clause of try-catch block, FileNotFound exception must be caught first followed by IOException. There is an hirarchy followed for catch clause.
+10) In catch clause of try-catch block, FileNotFound exception must be caught first followed by IOException. There is an hirarchy followed for catch clause "Child followed by Parent".
+If a method of a parent class declares to throw an exception, then the method in the child class must follow the following rules -
+	a) Exception should not be declared to be thrown by child class method.
+	b) Exception declared to be thrown by the child must be the same as exception declared to be thrown by parent class.
+	c) Exception declared to be thrown by the child must be subclass of the exception declared to be thrown by parent class.
+	d) Exception declared to be thrown by the child can never be superclass of the exception declared to be thrown by parent class.
+
 
 11) Access modifiers and static keyword in method definition can be interchanged.
+Access modifiers can not be used within a method. It has to be outside method and inside class.
 
 12) While using if else-if condition, variable declared outside the condition without initialization and refered to after the condition will throw a compile-time exception.
 Because - there is a possibility that the variable may not be assigned any value and since it is not initialized, it will be an empty variable in the stack.
 
 13) Strings are immutable. A string can not be edited and the referring object will not refer to the updated string.
-StringBuilder does not override equals() method. String and StringBuilder overrides toString() method.
+StringBuilders are mutable unlike Strings. StringBuilder does not override equals() method. String and StringBuilder overrides toString() method.
+StringBuilder's replace method accepts 3 arguments.
 
 14) Parameters - If an object is passed as parameter, it is pass-by-reference.
 If primitive types are passed as parameters, it is pass-by-value.
+Premmitive types can not hold null in them.
 
 15) Constructors are not of void return type.
 We can have methods with the same name as class with void return type and these are not constructors.
@@ -54,10 +73,13 @@ We can have methods with the same name as class with void return type and these 
 16) Static blocks are executed when the class is being loaded onto JVM. psvm method is called later, after the class is loaded on to the JVM.
 If static block throws an exception or if it is in an infinite loop, psvm method will not be executed.
 static blocks can be used to initialize the class before main method is called.
+special main method must have "public static void" and it should accept a String[] as parameter. It can also be "final" and parameter can be "String..."
+An exception can be thrown only if the method definition specifies a throws action.
 
 17) Switch statement needs break statement for every case without which the flow would continue to the following case till it reaches a break statement or end of switch statement.
 If default is placed at the begining of switch statement and there are no matching case and break statement, all the cases would be executed starting with default.
 If default is placed at the end of switch statement and there are no matching case and break statement, default would be executed and end of switch statement would be reached.
+NOTE - switch statement does not take long and double type variables.
 
 VERY TRICKY
 18) Strings assigned a constant expression such as "string literals or final" will be computed at "compile-time". All strings computed at compile time will be refered by "String pool"
@@ -67,14 +89,18 @@ String s2 = "Arvind" + "";
 Both s1 and s2 variables refer to "Arvind" with in the string pool as they are computed at compile time.
 Therefore, s1 == s2 will be true.
 If s2 = s1 + ""; then s2 will be computed at run-time since it is a dynamic variable. Therefore, in this case, s1 == s2 will be false.
+NOTE - String s = new String("Some string value") will create a string object in string-pool and in non-pool location.
 
 NOTE
 19) Parent class can not be assigned to a child class object using casting. It will throw a run-time exception - ClassCastException.
 
-20) An empty array of a given size is filled with "null".
+20) An array of premitive type is initialized to their respective 0. An array of Object type is initialized to null.
+If isEmpty() is called on an element of object array, it will throw a NullPointerException at runtime.
 
 21) While using iterator, we should avoid modifying the collections. If there is an absolute need to modify the collections, it should be done using the iterator.add and remove
 methods and not using the colections.add or remove methods as it will result in ConcurrentModificationException.
+Within a treaditional for loop, a collection object can be modified.
+This is however not possible in case of for-each loop or while using iterator (While using iterator, we must use the iterator's remove() method to remove an element from the list)
 
 22) If a class "One" extends another class "Two" from a different package and there are 2 variables of which one is protected. We must use this. or super. to access that protected variable if getters are not available.
 
@@ -84,9 +110,84 @@ java Name One Two Three - Here One, Two and Three are the arguments passed on to
 It can be assessed inside the main method using the usual array operations.
 
 24) List can have any number of null.
+If we add an element to any location leaving the head blank, it will throw IndexOutOfBoundException at runtime.
 
 25) COnstructors can have either super(value) or this(value) and not both of them. They must be the first statement inside a child's constructor.
 If a class does not extend any other class and if super() method without any argument is called, the super is referring to the Object class's constructor.
+
+26) Top-level Classes can not be declared private or protected. Inner-classes can be declared private or protected.
+Protected methods and variables are accessable within the package and by the subclasses in any package.
+No access modifier methods and variables are accessable only within the package.
+When a class extends another, the overriding methods must have a same/higher permissive access modifier than the parent's method
+
+NOTE - Very important. Tricky Question.
+27) When adding int to a List<Integer>, the values are auto-boxed. If the value of int is between -128 and 127, it will not create duplicate objects in the heap.
+Instead it will refer to the same objects in the Heap. But for objects outside the mentioned range, it will create new objects in the heap.
+Character value below 127, Boolean, Byte and Short follow the same principle.
+
+28) Call to the overloading method with parameter - The call will be made to the method whose parameter is lowest in the hierarchy.
+example - parameters are of type Object, CharSequence, String - overloading method wil be mapped to the method whose parameter is of type String.
+If null is passed as parameter and if there are multiple same level(sibling objects) parameters, Compile-time error will occur.
+
+29) Exceptions can not be assigned to try-catch without relavence. FileNotFoundException must be used when there is File based operation.
+
+30) If an expressiion is computed at compile time, then object == object is true. All string literals, final variables and premitive types are computed at compile time.
+If an expression is computed at run-time, then object == object is false. All objects are computed at run-time.
+NOTE - In case of a string concatination, all static concatinations (final variable, string literals, primitive types) are refered from string poll.
+
+NOTE - Remember to watch out for short-circuit operations in equations. They will not be evaluated. Imagine if, if-else look to find its logic.
+
+31) Order of presedence in JAVA - https://introcs.cs.princeton.edu/java/11precedence/
+
+32) Generic syntax do not follow sub-class super-class relationship
+EX - List<Animal> a = nw ArrayList<Dog>() will not compile.
+
+33) if the parameter of the method is - (char... word), then word will be a list of char, we can input as many char as possible.
+
+34) bitwise operator for boolean give out the following results -
+	a) & - LHS and RHS are both true - evaluates to true, else evaluates to false.
+	b) | - LHS and RHS are both false - evaluates to flase, else evaluates to true.
+	c) ^ - LHS and RHS are both different - evaluates to true, else evaluates to false.
+
+
+35) A variable without any access modifiers in an interface is public, static and final as all variables are explicitly public static final if declared otherwise.
+It can be accessed without creating a refrence variable of the interface. It can also be accessed by reference variable using the dot operator.
+Methods without any odifiers in an interface is public, abstract if the method has no definition.
+
+36) It is possible to have same name (small letters) for package, class, variable, methods, constructor.
+If new keyword is not used to call the constructor of a class within the same class, it will not be invoked.
+
+37) Static variables can be accessed with-in a non static  method of the same calss by using this. keyword although it is not a good practise.
+It can also be accessed using ClassName.
+
+38) Instances can not be instantiated. Array of Instance can be created using the new keyword but size of the array must be instianted in the declaration itself.
+NOTE - static method of a class/interface can be referred by using their class name and can not be accessed using its child class, etc.
+Example - interface/class Parent , class child extends/implements Parent and Parent has a static variable name. The static variable name belonging to Parent can only be accessed
+using parent class name -> Parent.name and can not be accessed using child class -> Child.name.
+
+39) But public Static final (explicitly defined) variables of an interface can be referred using referrence variables.
+Example - interface Parentable, class Child implements Parentable and Parent interface has a variable name. This variable can be accessed as follows -
+Parentable parent = new Child(); parent.name;
+
+40) Default methods are public if no access modifiers are provided. If a class implements multiple interfaces that has the same default method then the imolementing class must override
+those default methods. LOGIC - the implementing class will not know which default method to inherit from the multiple interfaces.
+
+41)	a) A catch clause can have multiple exceptions seperated by "|". But those exceptions must not be related - child-parent because first exception may be caught and the second one
+	will be caught again.
+	Example - IOException and SQLException are not related, therefore - catch(IOException | SQLException) is compilable.
+NOTE - Overriding methods may or may not throw runtime exception. If the overriden method throws a run-time exception/errors then the overriding method must not
+throw a checked exception such as IOException, FileNotFoundException, SQLException, etc.
+	b) The exception thrown is final and can not be assigned another value
+	Example - catch(IOException | SQLException er) { er = new IOException } - here er is final variable and causes compile-time error if a value is assigned to it.
+NOTE - For multiple catch clauses, the variable can be assigned value as it is not a final variable.
+	c)	Exception ex can be used to catch all its subclasses mentioned in throws clause.
+
+
+
+
+
+
+
 
 
 
