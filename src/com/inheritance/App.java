@@ -8,7 +8,18 @@ public class App {
     static int and = 10;
     public static void main(String[] args) {
         //new App().staticVariableCall();
-        staticCall();
+        //staticCall();
+        test();
+    }
+
+    private static void test(){
+        Mother mother = new Child();
+        mother.dumb();
+        Parent parent = new Child();
+        // parent.dumb(); This causes compile-time error
+
+        Child child = new Child();
+        child.dumb();
     }
 
     private static void staticCall(){
