@@ -13,13 +13,35 @@ public class App {
     }
 
     private static void test(){
-        Mother mother = new Child();
-        mother.dumb();
-        Parent parent = new Child();
-        // parent.dumb(); This causes compile-time error
+        // Class and its child. Instance variable is of type Mother (class) hence static method is accessed using instance variable.
+        // No overriding methods in child class therefore Son.dumb() calls the static method of its parent class Mother.
+        Mother mom = new Son();
+        mom.dumb();
+        Son.dumb();
 
-        Child child = new Child();
-        child.dumb();
+        Mother mother = new Mother();
+        mother.dumb();
+
+        // Interface and its implementation. Instance variable is of type Parent (interface). Since interfaces can not be instantiated,
+        // instance variable can not be used to access static method in interface. But it can be directly accessed using Parent.dumb()
+        Parent par = new Daughter();
+        //par.dumb();
+        Parent.dumb();
+        //Daughter.dumb();
+
+        // Mother class extended by child Son2 and static method is overridden. But the parent's instance variable still calls the
+        // parent static method and not the overridden method. Child class method can be called using Child class name - Son2.dumb()
+        Mother m1 = new Son2();
+        m1.dumb();
+        Son2.dumb();
+
+        Parent pa = new Daughter2();
+        //pa.dumb();
+        Parent.dumb();
+
+        Daughter da = new Daughter();
+        //da.dumb();
+        //Daughter.dumb();
     }
 
     private static void staticCall(){
