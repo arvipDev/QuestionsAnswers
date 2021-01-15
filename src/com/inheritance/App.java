@@ -16,8 +16,28 @@ public class App {
     }
 
     public static void main(String[] args) {
-        excep();
-        aaa();
+        test2();
+    }
+
+    private static void test2(){
+        try{
+            System.out.println("In Outer TC block");
+            try {
+                System.out.println("In Inner TC block");
+                String s = null;
+                System.out.println(s.length());
+            }catch (NullPointerException e){
+                System.out.println(e);
+            }
+            System.out.println("In Outer TC block");
+            int[] a = new int[3];
+            System.out.println(a[5]);
+        }
+        catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println(e);
+        } finally {
+            System.out.println("Exiting...");
+        }
     }
 
     private static void excep(){
