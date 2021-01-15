@@ -1,15 +1,40 @@
 package com.inheritance;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
 
 public class App {
 
-    static int and = 10;
+    static int an = 10;
+    int some = 10 + an;
+    private int ddd(){
+        System.out.println(this.an);
+        System.out.println(an);
+        System.out.println(App.an);
+        an += 25;
+        System.out.println(an);
+        return some;
+    }
+
     public static void main(String[] args) {
-        //new App().staticVariableCall();
-        //staticCall();
-        test();
+        excep();
+        aaa();
+    }
+
+    private static void excep(){
+        File f = new File("");
+        try {
+            FileReader fr = new FileReader(f);
+            BufferedReader bf = new BufferedReader(fr);
+            String s = bf.readLine();
+            while (!s.isEmpty()){
+                System.out.println(s);
+                s = bf.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private static void test(){
@@ -51,7 +76,7 @@ public class App {
     }
 
     private void staticVariableCall(){
-        System.out.println(this.and);
+        System.out.println(this.an);
     }
 
     private static void aaa () {
