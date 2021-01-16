@@ -16,7 +16,22 @@ public class App {
     }
 
     public static void main(String[] args) {
-        test2();
+        System.out.println(test3());
+    }
+
+    private static int test3(){
+        int result = 0;
+        try{
+            result = 18/3;
+            return result;
+        } catch (ArithmeticException e){
+            System.out.println(e);
+            return -1;
+        } finally {
+            System.out.println("Here in finally");
+            // this return overrides return from try-catch blocks
+            return 0;
+        }
     }
 
     private static void test2(){
