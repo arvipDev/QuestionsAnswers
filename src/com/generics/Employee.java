@@ -7,5 +7,6 @@ public abstract class Employee {
     int age;
     int leaves;
 
+
     public abstract void applyLeave(int noOfLeaves);
 }

@@ -16,21 +16,65 @@ public class App {
     }
 
     public static void main(String[] args) {
-        System.out.println(test3());
+        t4();
+        try {
+            t1();
+        } catch (FileNotFoundException e){
+            System.out.println(e);
+        }
+    }
+
+    private static void t4() {
+        File file = new File("D:\\Mine/DS");
+        try(FileReader reader = new FileReader(file)) {
+            BufferedReader r = new BufferedReader(reader);
+            String s = r.readLine();
+            while (s != null){
+                System.out.println(s);
+                s = r.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e);
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
+
+    private static void t1() throws NullPointerException, FileNotFoundException{
+        System.out.println("t1");
+        t2();
+    }
+
+
+    private static void t2() throws FileNotFoundException {
+        System.out.println("t2");
+        t3();
+    }
+
+    private static void t3() throws FileNotFoundException {
+        System.out.println("t3");
+        throw new FileNotFoundException();
     }
 
     private static int test3(){
         int result = 0;
         try{
-            result = 18/3;
+            result = 18/0;
             return result;
         } catch (ArithmeticException e){
+            try{
+                result = 10/0;
+            } catch (ArithmeticException e1){
+                System.out.println("Catch-try");
+                System.out.println(e1.toString());
+            }
+            System.out.println(result);
             System.out.println(e);
             return -1;
         } finally {
             System.out.println("Here in finally");
             // this return overrides return from try-catch blocks
-            return 0;
+            // return 0;
         }
     }
 
