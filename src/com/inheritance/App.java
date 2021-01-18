@@ -26,8 +26,7 @@ public class App {
 
     private static void t4() {
         File file = new File("D:\\Mine/DS");
-        try(FileReader reader = new FileReader(file)) {
-            BufferedReader r = new BufferedReader(reader);
+        try(FileReader reader = new FileReader(file); BufferedReader r = new BufferedReader(reader)) {
             String s = r.readLine();
             while (s != null){
                 System.out.println(s);

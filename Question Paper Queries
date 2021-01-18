@@ -9,6 +9,7 @@ removeIf(Predicate<T> p) traverses through the list and removes all the items th
 
 3) If we call the main method inside the main method - Stack over flow error occurs as the main method is called repeatedly without completion of execution.
 args array is of length 0. If the class is compiled and called using cmd, then we can add items to args array of main method.
+Values can be assigned to existing elements of args array inside main method. NOTE - If the array is empty, elements can not be added to that array in the program.
 
 4) array declarations -
 int [] arr[] = new int[size][]
@@ -28,6 +29,14 @@ NOTE - Exception and Error are both subclass of Throwable class.
 RuntimeException, Error and all their subclasses are Unchecked exceptions.
 All other subclass of Throwable class is checked exception.
 https://www.benchresources.net/interview-question-and-answer-on-exception-handling-in-java/
+For multiple catch clauses - lower most child must come first followed by higher ones.
+NOTE - If a method throws checked exception, it must be caught using try-catch or it must be propagated using throws clause.
+If a method throws unchecked exception or errors, it may not be caught or propagated.
+For user defined exceptions, if it extends from a checked exception, it must be caught, else it may not be caught or propagated.
+
+throw clause can be used to propagate exceptions manually. It is helpful in case of checked exceptions propagation.
+In case of checked exception, propagated exceptions must be handled, otherwise it would result in compile-time exception.
+Checked exceptions does not have automatic propagation as in the case of unchecked exceptions.
 
 6) Local Date and time are final classes and they can not be extended. Period is also a final class.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
@@ -45,13 +54,8 @@ Objects can be modified by passing it to another method.
 9) If the parent class has an overloading constructor, the child class MUST call super(parameter) method in its constructor. The parameter entered must match the variable type taken by the parent class constructor.
 A constructor can call another constructor using this(value) and not by calling the constructor by name.
 
-10) In catch clause of try-catch block, FileNotFound exception must be caught first followed by IOException. There is an hirarchy followed for catch clause "Child followed by Parent".
-If a method of a parent class declares to throw an exception, then the method in the child class must follow the following rules -
-	a) Exception should not be declared to be thrown by child class method.
-	b) Exception declared to be thrown by the child must be the same as exception declared to be thrown by parent class.
-	c) Exception declared to be thrown by the child must be subclass of the exception declared to be thrown by parent class.
-	d) Exception declared to be thrown by the child can never be superclass of the exception declared to be thrown by parent class.
-
+10) In catch clause of try-catch block, FileNotFoundException exception must be caught first followed by IOException.
+There is an hirarchy followed for catch clause "Child followed by Parent".
 
 11) Access modifiers and static keyword in method definition can be interchanged.
 Access modifiers can not be used within a method. It has to be outside method and inside class.
@@ -72,7 +76,7 @@ We can have methods with the same name as class with void return type and these 
 
 16) Static blocks are executed when the class is being loaded onto JVM. psvm method is called later, after the class is loaded on to the JVM.
 If static block throws an exception or if it is in an infinite loop, psvm method will not be executed.
-static blocks can be used to initialize the class before main method is called.
+static blocks can be used to initialize the class before main method is called. It is used to initialise static variables at the begining.
 special main method must have "public static void" and it should accept a String[] as parameter. It can also be "final" and parameter can be "String..."
 An exception can be thrown only if the method definition specifies a throws action.
 
@@ -129,7 +133,7 @@ Character value below 127, Boolean, Byte and Short follow the same principle.
 example - parameters are of type Object, CharSequence, String - overloading method wil be mapped to the method whose parameter is of type String.
 If null is passed as parameter and if there are multiple same level(sibling objects) parameters, Compile-time error will occur.
 
-29) Exceptions can not be assigned to try-catch without relavence. FileNotFoundException must be used when there is File based operation.
+29) Exceptions can not be assigned to try-catch without relevance. FileNotFoundException must be used when there is File based operation.
 
 30) If an expressiion is computed at compile time, then object == object is true. All string literals, final variables and premitive types are computed at compile time.
 If an expression is computed at run-time, then object == object is false. All objects are computed at run-time.
@@ -157,8 +161,9 @@ Methods without any odifiers in an interface is public, abstract if the method h
 36) It is possible to have same name (small letters) for package, class, variable, methods, constructor.
 If new keyword is not used to call the constructor of a class within the same class, it will not be invoked.
 
-37) Static variables can be accessed with-in a non static  method of the same calss by using this. keyword although it is not a good practise.
+37) Static variables can be accessed with-in a non static method of the same class by using (can be accessed just by itself also) this. keyword although it is not a good practise.
 It can also be accessed using ClassName.
+Static methods do not support the use of this. and super. inside the method.
 
 38) Instances can not be instantiated. Array of Instance can be created using the new keyword but size of the array must be instianted in the declaration itself.
 NOTE - static method of a class/interface can be referred by using their class name and can not be accessed using its child class, etc.
@@ -169,7 +174,7 @@ using parent class name -> Parent.name and can not be accessed using child class
 Example - interface Parentable, class Child implements Parentable and Parent interface has a variable name. This variable can be accessed as follows -
 Parentable parent = new Child(); parent.name;
 
-40) Default methods are public if no access modifiers are provided. If a class implements multiple interfaces that has the same default method then the imolementing class must override
+40) Default methods are public if no access modifiers are provided. If a class implements multiple interfaces that has the same default method then the implementing class must override
 those default methods. LOGIC - the implementing class will not know which default method to inherit from the multiple interfaces.
 
 41)	a) A catch clause can have multiple exceptions seperated by "|". But those exceptions must not be related - child-parent because first exception may be caught and the second one
@@ -181,6 +186,30 @@ throw a checked exception such as IOException, FileNotFoundException, SQLExcepti
 	Example - catch(IOException | SQLException er) { er = new IOException } - here er is final variable and causes compile-time error if a value is assigned to it.
 NOTE - For multiple catch clauses, the variable can be assigned value as it is not a final variable.
 	c)	Exception ex can be used to catch all its subclasses mentioned in throws clause.
+
+42) Static methods can be accessed by their class/interface name.
+Instance variable of a parent class can access its static methods. But instance variable of child class can not access its static methods.
+This is very confusing. Be very careful.
+
+43) ARM - Automatic Resource Management is part of Java 1.7 and it is used to handle resource within try-catch block. The resources are managed when the compiler reaches the end
+of the try-catch block. Only those resources that are passed in as arguments to the try block.
+NOTE - All resources must implement AutoClosable interface. All resources passed in as argument are implicitly final and can not be reassigned within the block. We can assign multiple resources using semicolon within the try block argument.
+
+44) Rules for exception declaration in overriding methods -
+	a) If the parent method does not declare to throw any exception -
+		The overriding method in the child class can throw any unchecked exception,
+		It may not declare to throw any exception,
+		It can not declare to throw any checked exceptions as it will result in compile-time error.
+	b) If the parent method declares to throw an unchecked exception -
+		The overriding method in the child class can throw any unchecked exception,
+		It may not declare to throw any exception,
+		It can not declare to throw any checked exceptions as it will result in compile-time error.
+	c) If the parent method declares to throw a checked exception -
+		The overriding method in the child class may declare to throw same checked exception as the parent,
+		It may declare to throw sub-class of the exception declared by the parent,
+		It may throw any unchecked exception,
+		It may not declare to throw any exception.
+
 
 
 
