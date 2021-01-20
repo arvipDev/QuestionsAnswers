@@ -212,3 +212,6 @@ NOTE - All resources must implement AutoClosable interface. All resources passed
 		It may throw any unchecked exception,
 		It may not declare to throw any exception.
 NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
+
+45) Static variables can be accessed without creating a new objects, using the new keyword.
+Example - If an array of objects are initialised to hold n elements in it. For-each loop traversing through it to fetch each element can be used to call the static variable of the object eventhough all elements are pointing at null.
