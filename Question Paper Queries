@@ -134,6 +134,7 @@ example - parameters are of type Object, CharSequence, String - overloading meth
 If null is passed as parameter and if there are multiple same level(sibling objects) parameters, Compile-time error will occur.
 
 29) Exceptions can not be assigned to try-catch without relevance. FileNotFoundException must be used when there is File based operation.
+If a method is throwing an exception within it, it must declare to throw exception in the definition itself. Otherwise will cause compile-time error.
 
 30) If an expressiion is computed at compile time, then object == object is true. All string literals, final variables and premitive types are computed at compile time.
 If an expression is computed at run-time, then object == object is false. All objects are computed at run-time.
@@ -147,6 +148,7 @@ NOTE - Remember to watch out for short-circuit operations in equations. They wil
 EX - List<Animal> a = nw ArrayList<Dog>() will not compile.
 
 33) if the parameter of the method is - (char... word), then word will be a list of char, we can input as many char as possible.
+NOTE - If the overloading methods have Byte and byte... as parameters, Byte someName will be evaluated ahead of byte... otherName.
 
 34) bitwise operator for boolean give out the following results -
 	a) & - LHS and RHS are both true - evaluates to true, else evaluates to false.
@@ -199,30 +201,14 @@ NOTE - All resources must implement AutoClosable interface. All resources passed
 	a) If the parent method does not declare to throw any exception -
 		The overriding method in the child class can throw any unchecked exception,
 		It may not declare to throw any exception,
-		It can not declare to throw any checked exceptions as it will result in compile-time error.
+		It can not declare to throw any checked exceptions as it will result in compile-time error. (Can not throw "Exception" itself as it is parent of both checked and unchecked)
 	b) If the parent method declares to throw an unchecked exception -
 		The overriding method in the child class can throw any unchecked exception,
 		It may not declare to throw any exception,
-		It can not declare to throw any checked exceptions as it will result in compile-time error.
+		It can not declare to throw any checked exceptions as it will result in compile-time error. (Can not throw "Exception" itself as it is parent of both checked and unchecked)
 	c) If the parent method declares to throw a checked exception -
 		The overriding method in the child class may declare to throw same checked exception as the parent,
 		It may declare to throw sub-class of the exception declared by the parent,
 		It may throw any unchecked exception,
 		It may not declare to throw any exception.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
