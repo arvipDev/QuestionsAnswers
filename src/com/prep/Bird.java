@@ -1,6 +1,6 @@
 package com.prep;
 
-public class Bird extends Vertebrate implements Mobility {
+public class Bird extends Vertebrate implements Mobility, Tess {
 
     public Bird(int age, String terrain) {
         super(age, terrain);

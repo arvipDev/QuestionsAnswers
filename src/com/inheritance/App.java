@@ -1,11 +1,16 @@
 package com.inheritance;
 
-import java.io.*;
+import com.database.Tester;
+import com.prep.Tess;
 
-public class App {
+import java.io.*;
+import java.util.Objects;
+
+public class App implements Tess {
 
     static int an = 10;
     int some = 10 + an;
+
     private int ddd(){
         System.out.println(this.an);
         System.out.println(an);
@@ -16,12 +21,51 @@ public class App {
     }
 
     public static void main(String[] args) {
-        t4();
-        try {
-            t1();
-        } catch (FileNotFoundException e){
-            System.out.println(e);
-        }
+        //main();
+        Int3 iff = new InterF();
+        iff.done();
+        iff = null;
+        iff.doo();
+
+    }
+
+    private static  void main () {
+
+        //*********************************************
+        Int3 in = new InterF();
+        in.done();
+        Int1.doo();
+        //Int3.doo();
+        Int2 inn = new InterF();
+        inn.doo();
+        InterF inter = new InterF();
+        inter.doo();
+        //InterF.doo();
+        //*********************************************
+        Mother mom = new Mother();
+        Child child = new Child();
+        Son son = new Son();
+        mom.dumb();
+        mom = child;
+        System.out.println(mom.getClass());
+        mom = son;
+        System.out.println(mom.getClass());
+
+        Mother m1 = new Child();
+        Mother m2 = new Son();
+        Child c1 = (Child) m1;
+        System.out.println(c1.getClass());
+        Son s1 = (Son) m2;
+        System.out.println(s1.getClass());
+
+        //******************************************
+
+        Tess tess = new App();
+        Tess.dd();
+        tess.nand();
+        int a = 10;
+        int b = a = 20;
+        Object[] aa = {"A", new Object()};
     }
 
     private static void t4() {

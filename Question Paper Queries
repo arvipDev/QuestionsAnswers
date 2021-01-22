@@ -178,6 +178,7 @@ Parentable parent = new Child(); parent.name;
 
 40) Default methods are public if no access modifiers are provided. If a class implements multiple interfaces that has the same default method then the implementing class must override
 those default methods. LOGIC - the implementing class will not know which default method to inherit from the multiple interfaces.
+NOTE - Default method can be declared only in interfaces. Default method can call static method just like calling other methods within the same interface.
 
 41)	a) A catch clause can have multiple exceptions seperated by "|". But those exceptions must not be related - child-parent because first exception may be caught and the second one
 	will be caught again.
@@ -199,17 +200,17 @@ NOTE - All resources must implement AutoClosable interface. All resources passed
 
 44) Rules for exception declaration in overriding methods -
 	a) If the parent method does not declare to throw any exception -
-		The overriding method in the child class can throw any unchecked exception,
+		The overriding method in the child class can throw any unchecked exception and errors,
 		It may not declare to throw any exception,
 		It can not declare to throw any checked exceptions as it will result in compile-time error. (Can not throw "Exception" itself as it is parent of both checked and unchecked)
 	b) If the parent method declares to throw an unchecked exception -
-		The overriding method in the child class can throw any unchecked exception,
+		The overriding method in the child class can throw any unchecked exception and errors,
 		It may not declare to throw any exception,
 		It can not declare to throw any checked exceptions as it will result in compile-time error. (Can not throw "Exception" itself as it is parent of both checked and unchecked)
 	c) If the parent method declares to throw a checked exception -
 		The overriding method in the child class may declare to throw same checked exception as the parent,
 		It may declare to throw sub-class of the exception declared by the parent,
-		It may throw any unchecked exception,
+		It may throw any unchecked exception and errors,
 		It may not declare to throw any exception.
 NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
 
