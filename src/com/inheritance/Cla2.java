@@ -8,4 +8,8 @@ public class Cla2 extends  Cla1 {
     void don(){
         System.out.println("Class 2");
     }
+
+    public static void doo(){
+
+    }
 }

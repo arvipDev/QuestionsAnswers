@@ -20,16 +20,27 @@ public class App implements Tess {
         return some;
     }
 
-    public static void main(String[] args) {
-        //main();
-        Int3 iff = new InterF();
-        iff.done();
-        iff = null;
-        iff.doo();
-
+    private static void inh(){
+        Cla123 cl = new Cla123();
+        cl.man();
+        Cla3.man();
     }
 
-    private static  void main () {
+    public static void main(String[] args) {
+        inh();
+    }
+
+    private static void dfo(Byte bb){
+        bb = 15;
+        System.out.println(bb);
+    }
+
+    private static void dfo(byte... bb){
+        bb[0] = 15;
+        System.out.println(bb);
+    }
+
+    private static void main () {
 
         //*********************************************
         Int3 in = new InterF();

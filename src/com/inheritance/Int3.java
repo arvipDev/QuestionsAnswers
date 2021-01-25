@@ -5,5 +5,12 @@ public interface Int3 extends Int2  {
         System.out.println("In interface 3");
     }
 
-    void doo();
+    public static void dodo(){
+        System.out.println("In interface 3");
+    }
+
+    default void didi(){
+        System.out.println("In imterface 3");
+    }
+
 }
