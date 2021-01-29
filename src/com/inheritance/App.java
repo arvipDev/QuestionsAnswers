@@ -3,6 +3,7 @@ package com.inheritance;
 import com.database.Tester;
 import com.prep.Tess;
 
+import javax.naming.ServiceUnavailableException;
 import java.io.*;
 import java.util.Objects;
 
@@ -27,7 +28,14 @@ public class App implements Tess {
     }
 
     public static void main(String[] args) {
-        inh();
+        Sub su = new Sub();
+        su.dooo();
+        su.dioo();
+        su.doii();
+
+        Super sup = new Sub();
+        sup.dooo();
+        ((Sub)sup).doii();
     }
 
     private static void dfo(Byte bb){

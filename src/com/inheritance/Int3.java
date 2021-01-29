@@ -5,7 +5,7 @@ public interface Int3 extends Int2  {
         System.out.println("In interface 3");
     }
 
-    public static void dodo(){
+    static void dodo(){
         System.out.println("In interface 3");
     }
 
