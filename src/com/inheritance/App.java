@@ -28,14 +28,59 @@ public class App implements Tess {
     }
 
     public static void main(String[] args) {
+        int[] aaaa[] = new int[4][5];
+        char aa = 97;
+        System.out.println(aa);
+        int vfv = aa;
+        System.out.println(vfv);
+        Character mn = '1';
+        switch (mn){
+            case '1':
+                System.out.println("In " + mn);
+                break;
+            case 2:
+                System.out.println("char " + mn);
+                break;
+        }
+    }
+
+    private static void sdf(){
         Sub su = new Sub();
-        su.dooo();
-        su.dioo();
-        su.doii();
+        System.out.println(su.com);
+        System.out.println(su.su);
+        System.out.println(su.sb);
 
         Super sup = new Sub();
-        sup.dooo();
-        ((Sub)sup).doii();
+        System.out.println(sup.com);
+        System.out.println(sup.su);
+
+        Super supe = new Super();
+        System.out.println(supe.com);
+        System.out.println(supe.su);
+        System.out.println("***************");
+
+        su.orm();
+        sup.orm();
+        supe.orm();
+        System.out.println("***************");
+        su.norm();
+        System.out.println("***************");
+        su.snorm();
+        sup.snorm();
+        supe.snorm();
+        System.out.println("***************");
+        su.orm();
+        sup.orm();
+        supe.orm();
+        System.out.println("***************");
+        sup.orm();
+        supe.orm();
+        su.orm();
+        supe.snorm();
+        sup.snorm();
+        su.snorm();
+        System.out.println(su.su);
+        System.out.println(sup.com);
     }
 
     private static void dfo(Byte bb){

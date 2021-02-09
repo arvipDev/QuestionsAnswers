@@ -1,13 +1,15 @@
 package com.inheritance;
 
 public class Super {
-    int sup =  10;
+    int su = 99;
+    int com =  10;
     Super() {
-        System.out.println("Super constructor");
+    }
+    public void orm(){
+        System.out.println("Super orm");
     }
 
-    void dooo(){
-        System.out.println("dooo");
+    public void snorm(){
+        System.out.println("Super norm");
     }
-
 }

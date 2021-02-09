@@ -3,7 +3,7 @@ Java practise test 1 --------
 1) Compile time error - Detected while writing code, usually syntax error. Can be fixed while coding
    Runtime error - Detected while running the code. These has to do with exceptions. Can not be fixed the programm completes running.
 
-2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique.Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
+2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique. Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
 NOTE - remove(Object) will return boolean. remove(index) will return removed object.
 removeIf(Predicate<T> p) traverses through the list and removes all the items that satisfies the condition mentioned in the predicate. It returns a boolean.
 
@@ -12,9 +12,12 @@ args array is of length 0. If the class is compiled and called using cmd, then w
 Values can be assigned to existing elements of args array inside main method. NOTE - If the array is empty, elements can not be added to that array in the program.
 
 4) array declarations -
-int [] arr[] = new int[size][]
+int[] arr[] = new int[size][]
 int arr[][] = new int[size][]
 int[][] arr = new int[size][]
+int[] arr[] = new int[size][size]
+int[][] arr = new int[size][size]
+int arr[][] = new int[size][size]
 int[] arr = new int[size]
 int arr[] = new int[size]
 int arr[] = new int[] {val1, val2} // only 2 elements can be assigned to this array
@@ -27,16 +30,17 @@ Unchecked exceptions are those exceptions that occur during runtime such as Arra
 Checked exception can not be caught without having a code in try block that is vulnarable for that exception. If a checked exception is caught using try-catch without any part of code in try block that might result in causing that exception, a compilation error occurs.
 NOTE - Exception and Error are both subclass of Throwable class.
 RuntimeException, Error and all their subclasses are Unchecked exceptions.
-All other subclass of Throwable class is checked exception.
+All other subclass of Throwable class is checked exception.....
 https://www.benchresources.net/interview-question-and-answer-on-exception-handling-in-java/
 For multiple catch clauses - lower most child must come first followed by higher ones.
 NOTE - If a method throws checked exception, it must be caught using try-catch or it must be propagated using throws clause.
 If a method throws unchecked exception or errors, it may not be caught or propagated.
 For user defined exceptions, if it extends from a checked exception, it must be caught, else it may not be caught or propagated.
+NOTE - If an exception is thrown manually using the throw keyword, the mothod should declare to throw that exception, Else compile-time error will occur.
 
-throw clause can be used to propagate exceptions manually. It is helpful in case of checked exceptions propagation.
+IMPORTANT - throw clause can be used to propagate exceptions manually. It is helpful in case of checked exceptions propagation.
 In case of checked exception, propagated exceptions must be handled, otherwise it would result in compile-time exception.
-Checked exceptions does not have automatic propagation as in the case of unchecked exceptions.
+Checked exceptions does not have automatic propagation as in the case of unchecked exceptions. If an exception is propagated using throw keyword, the enclosing method must declare to throw (use throws) the checked exception.
 
 6) Local Date and time are final classes and they can not be extended. Period is also a final class.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
@@ -133,8 +137,9 @@ Character value below 127, Boolean, Byte and Short follow the same principle.
 example - parameters are of type Object, CharSequence, String - overloading method wil be mapped to the method whose parameter is of type String.
 If null is passed as parameter and if there are multiple same level(sibling objects) parameters, Compile-time error will occur.
 
-29) Exceptions can not be assigned to try-catch without relevance. FileNotFoundException must be used when there is File based operation.
+29) Checked exceptions can not be assigned to try-catch without relevance. FileNotFoundException must be used when there is File based operation.
 If a method is throwing an exception within it, it must declare to throw exception in the definition itself. Otherwise will cause compile-time error.
+Can not have a catch a checked exception without have a possibility of irs occurance (without being thrown)
 
 30) If an expressiion is computed at compile time, then object == object is true. All string literals, final variables and premitive types are computed at compile time.
 If an expression is computed at run-time, then object == object is false. All objects are computed at run-time.
@@ -147,12 +152,12 @@ NOTE - Remember to watch out for short-circuit operations in equations. They wil
 32) Generic syntax do not follow sub-class super-class relationship
 EX - List<Animal> a = nw ArrayList<Dog>() will not compile.
 
-33) if the parameter of the method is - (char... word), then word will be a list of char, we can input as many char as possible.
+33) if the parameter of the method is - (char... word), then word will be an array of char, we can input as many char as possible.
 NOTE - If the overloading methods have Byte and byte... as parameters, Byte someName will be evaluated ahead of byte... otherName.
 
 34) bitwise operator for boolean give out the following results -
 	a) & - LHS and RHS are both true - evaluates to true, else evaluates to false.
-	b) | - LHS and RHS are both false - evaluates to flase, else evaluates to true.
+	b) | - LHS and RHS are both false - evaluates to false, else evaluates to true.
 	c) ^ - LHS and RHS are both different - evaluates to true, else evaluates to false.
 
 
@@ -166,11 +171,17 @@ If new keyword is not used to call the constructor of a class within the same cl
 37) Static variables can be accessed with-in a non static method of the same class by using (can be accessed just by itself also) this. keyword although it is not a good practise.
 It can also be accessed using ClassName.
 Static methods do not support the use of this. and super. inside the method.
+Important -
+Static variable of an interface can be accessed using the reference variable of interface, reference variable of implementation and using the name of the interface and implementation.
+Static method of an interface can only be accessed using the name of the interface.
+Static methods can access only static variable but instance methods can access both instance variable and static variable.
 
 38) Instances can not be instantiated. Array of Instance can be created using the new keyword but size of the array must be instianted in the declaration itself.
 NOTE - static method of a class/interface can be referred by using their class name and can not be accessed using its child class, etc.
 Example - interface/class Parent , class child extends/implements Parent and Parent has a static variable name. The static variable name belonging to Parent can only be accessed
 using parent class name -> Parent.name and can not be accessed using child class -> Child.name.
+NOYE - Static methods can be overloaded but it can not be overridden. It does not throw compilation or runtime error, it simply ignores the overriden method and call the parent's
+static method. Static methods can not just differ by keyword static while overloading, it throws a compile-time error.
 
 39) But public Static final (explicitly defined) variables of an interface can be referred using referrence variables.
 Example - interface Parentable, class Child implements Parentable and Parent interface has a variable name. This variable can be accessed as follows -
@@ -180,39 +191,117 @@ Parentable parent = new Child(); parent.name;
 those default methods. LOGIC - the implementing class will not know which default method to inherit from the multiple interfaces.
 NOTE - Default method can be declared only in interfaces. Default method can call static method just like calling other methods within the same interface.
 
+ALL abstract, static, default methods in an interface are implicitly public. All constant variables are public, static, final in an interface.
+
 41)	a) A catch clause can have multiple exceptions seperated by "|". But those exceptions must not be related - child-parent because first exception may be caught and the second one
 	will be caught again.
 	Example - IOException and SQLException are not related, therefore - catch(IOException | SQLException) is compilable.
-NOTE - Overriding methods may or may not throw runtime exception. If the overriden method throws a run-time exception/errors then the overriding method must not
-throw a checked exception such as IOException, FileNotFoundException, SQLException, etc.
-	b) The exception thrown is final and can not be assigned another value
+	NOTE - Overriding methods may or may not throw runtime exception. If the overriden method throws a run-time exception/errors then the overriding method must not
+	throw a checked exception such as IOException, FileNotFoundException, SQLException, etc.
+
+	b) If a catch block handles more than one exception type, then the catch parameter is implicitly final. It can not be assigned another value.
 	Example - catch(IOException | SQLException er) { er = new IOException } - here er is final variable and causes compile-time error if a value is assigned to it.
-NOTE - For multiple catch clauses, the variable can be assigned value as it is not a final variable.
+	NOTE - For multiple catch clauses, the unchecked exceptions variable can be assigned value cos its not final variable. But for checked exceptions, it can not assigned values.
+
 	c)	Exception ex can be used to catch all its subclasses mentioned in throws clause.
 
 42) Static methods can be accessed by their class/interface name.
 Instance variable of a parent class can access its static methods. But instance variable of child class can not access its static methods.
 This is very confusing. Be very careful.
+NOTE - An instance method can not override static method and a static method can not hide instance method.
+In a child class, we can overload the methods inherited from parent. Such overloaded methods neither hide nor override the parent methods — they are new methods, unique to child class.
+
+In classes, static methods can not be re-declared in child class as non-static method and vice-versa.
+Here are the possibilities parent-child interface -
+default to abstract - YES
+abstract to default - YES
+static to default - YES
+static to abstract - YES
+abstract to static - YES
+default to static - No, becuase instance method can not be overriden to static.
+
+			Interface 											Impl class							Result
+1) public static void do(){}						 		public void do(){}				 		 WORKS
+2) default void do(){}									public static void do(){}				Compile-time error, becuase static method can not override instance method.
+3) void do()											public static void do(){}				Compile-time error, becuase static method can not override instance method.
+4) public static void do(){}									void do(){}						Not possible because impl class is not abstract.
+
+			Parent class 										Child class							Result
+1) public static void do(){}								public void do(){}					Compile-time error, becuase instance method can not be overriden to static.
+2) public void do(){}									public static void do(){}				Compile-time error, becuase static method can not override instance method.
+3) public abstract void do()							public static void do(){}				Compile-time error, becuase static method can not override instance method.
+4) public static void do(){}							public abstract void do()				Not possible because impl class is not abstract.
+
+NOTE - IMPORTANT - Static method inside an interface can not refernce a non-static method of the same interface.
+But a non-static method within an interface can refer to the static method of the same interface.
+
+TO REMEMBER 1) I-to-I (Everything is allowed except default to static)													(I-I-D-S) I-I = DS
+			2) C-to-C (Nothing is allowed) instance method can be overriden to static method and vice-versa				(C-C-Nothing)
+			3) I-to-C (Nothing is allowed except static to non-static)													(I-C-S-NS) I-C = SNS
 
 43) ARM - Automatic Resource Management is part of Java 1.7 and it is used to handle resource within try-catch block. The resources are managed when the compiler reaches the end
 of the try-catch block. Only those resources that are passed in as arguments to the try block.
 NOTE - All resources must implement AutoClosable interface. All resources passed in as argument are implicitly final and can not be reassigned within the block. We can assign multiple resources using semicolon within the try block argument.
 
-44) Rules for exception declaration in overriding methods -
-	a) If the parent method does not declare to throw any exception -
-		The overriding method in the child class can throw any unchecked exception and errors,
-		It may not declare to throw any exception,
-		It can not declare to throw any checked exceptions as it will result in compile-time error. (Can not throw "Exception" itself as it is parent of both checked and unchecked)
-	b) If the parent method declares to throw an unchecked exception -
-		The overriding method in the child class can throw any unchecked exception and errors,
-		It may not declare to throw any exception,
-		It can not declare to throw any checked exceptions as it will result in compile-time error. (Can not throw "Exception" itself as it is parent of both checked and unchecked)
-	c) If the parent method declares to throw a checked exception -
-		The overriding method in the child class may declare to throw same checked exception as the parent,
-		It may declare to throw sub-class of the exception declared by the parent,
-		It may throw any unchecked exception and errors,
-		It may not declare to throw any exception.
-NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
+44) Rules for exception declaration in overriding methods - https://www.benchresources.net/rules-for-exception-handling-w-r-t-method-overriding-in-java/
+	When parent-class method declares no exception, then child-class overriding-method can declare,
+		1. No exception or
+		2. Any number of unchecked exception or errors
+		3. but strictly no checked exception (Can not throw "Exception" itself as it is parent of both checked and unchecked)
+	When parent-class method declares unchecked exception, then child-class overriding-method can declare,
+		1. No exception or
+		2. Any number of unchecked exception or errors
+		3. but strictly no checked exception (Can not throw "Exception" itself as it is parent of both checked and unchecked)
+	When parent-class method declares checked exception, then child-class overriding-method can declare,
+		1. No exception or
+		2. Same checked exception or
+		3. Sub-type of checked exception or
+		4. any number of unchecked exception
+	NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
 
 45) Static variables can be accessed without creating a new objects, using the new keyword.
 Example - If an array of objects are initialised to hold n elements in it. For-each loop traversing through it to fetch each element can be used to call the static variable of the object eventhough all elements are pointing at null.
+
+46) Objects class can not be instantiated because its constructor is a private constructor. It throws a compile-time error.
+But Object class can be instantiated. Its constructor is public constructor.
+
+47) To call a default method (of interface OFCOURSE) We must use this syntax - InterfaceName.super.DefaultMethodName
+
+48) Overriding variables in the child class hides the variable in the parent class. There is no rule for this (access modifiers, type can vary)
+NOTE - These variables will be assigned its values after the constructor calls and executes super().
+The reference type determines the calling variable.
+
+IMPORTANT NOTE - Overriden(variables are not truly overriden) variables will call the value based on the reference type.
+However, a child reference can call parents variable.
+
+49) Static method of an interface can be accessed only by using the interface name.
+	Static method of an abstract class can be accessed by its name, reference object, reference object of its child and class name of its child.
+	Static variable of an interface can be accessed by using interface name and its reference variable.
+
+50) If an interface extends another interface, overrides its method and a class implements both the interfaces, The class will access the child interface's overriden method even if the reference type is of parent interface.
+
+51) Sub class and super class -
+	a) Sub class reference can call overriden methods, Super class methods and Sub class methods
+	b) Super class reference can call overriden method and Super class method only.
+	c) Super class reference pointing at Sub class instance can call the overriden method (will call the Sub class version) and Super class method only.
+
+NOTE - In short, reference variables will call the overriden method,
+	   If method is not overriden, it will call method from itself.
+	   If method is not declared in it, it will call method from its parent. In this order.
+
+	Scenarios -
+	1) Super sup = new Sub(), orm() is overriden. sup.orm() will call the orm() of Sub class.
+	2) Super sup = new Super(), orm() is overriden, sup.orm() will call the orm() of Super class.
+	3) Sub sup = new Sub(), orm() is overriden, sup.orm() will call the orm() of Sub class.
+
+	4) Super sup = new Super(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
+	5) Super sup = new Sub(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
+	6) Super sup = new Super(), can not call the methods of Sub class.
+
+	7) Sub sup = new Sub(), norm() is not overriden and belongs to Sub class, sup.norm() will call the norm() from Sub class.
+	8) Super sup = new Sub(), can not call the methods of Sub class.
+	9) Sub sup = new Sub(), new Sub(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
+
+52) char aa = 'a' will assign a to char.
+	char aa = 97 will assign the ascii value of 97 which is 'a' to char.
+

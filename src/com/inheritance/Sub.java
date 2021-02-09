@@ -1,23 +1,16 @@
 package com.inheritance;
 
 public class Sub extends Super {
+    int sb = 1;
+    int com =  20;
     Sub(){
-        //super();
-        //System.out.println(super.sup);
-        System.out.println("Sub constructor");
+    }
+    public void orm(){
+        System.out.println("Sub orm");
     }
 
-    void dooo(){
-        System.out.println("sub dooo");
-    }
-
-
-    void doii(){
-        System.out.println("sub doii");
-    }
-
-    void dioo(){
-        System.out.println("sub dioo");
+    public void norm(){
+        System.out.println("Sub norm");
     }
 
 }
