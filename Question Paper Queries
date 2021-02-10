@@ -1,7 +1,7 @@
 Java practise test 1 --------
 
 1) Compile time error - Detected while writing code, usually syntax error. Can be fixed while coding
-   Runtime error - Detected while running the code. These has to do with exceptions. Can not be fixed the programm completes running.
+   Runtime error - Detected while running the code. These has to do with exceptions.
 
 2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique. Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
 NOTE - remove(Object) will return boolean. remove(index) will return removed object.
@@ -16,18 +16,19 @@ int[] arr[] = new int[size][]
 int arr[][] = new int[size][]
 int[][] arr = new int[size][]
 int[] arr[] = new int[size][size]
-int[][] arr = new int[size][size]
 int arr[][] = new int[size][size]
+int[][] arr = new int[size][size]
 int[] arr = new int[size]
 int arr[] = new int[size]
-int arr[] = new int[] {val1, val2} // only 2 elements can be assigned to this array
-int[] arr = new int[] {val1, val2} // only 2 elements can be assigned to this array
+int arr[] = new int[] {val1, val2} // only 2 elements would be assigned to this array
+int[] arr = new int[] {val1, val2} // only 2 elements would be assigned to this array
 
-NOTE int[] array is java-style, int arr[] is C-style of array declaration.
+FYI - int[] array is java-style, int arr[] is C-style of array declaration.
 
-5) Checked vs Unchecked exceptions - Checked exceptions are the ones IDE recognises and gives out suggestions to modify without which a compile time error is thrown. Syntax error, IOException,
+5) Checked vs Unchecked exceptions -
+Checked exceptions are the ones IDE recognises and gives out suggestions to modify without which a compile time error is thrown. Syntax error, IOException,
 Unchecked exceptions are those exceptions that occur during runtime such as ArrayOutOfBound, StackOverFlow, NullPointerException, etc
-Checked exception can not be caught without having a code in try block that is vulnarable for that exception. If a checked exception is caught using try-catch without any part of code in try block that might result in causing that exception, a compilation error occurs.
+Checked exception can not be caught without having a code in try block that is vulnarable to cause that exception. If a checked exception is caught using try-catch without any part of code in try block that might result in causing that exception, a compilation error occurs.
 NOTE - Exception and Error are both subclass of Throwable class.
 RuntimeException, Error and all their subclasses are Unchecked exceptions.
 All other subclass of Throwable class is checked exception.....
@@ -41,19 +42,21 @@ NOTE - If an exception is thrown manually using the throw keyword, the mothod sh
 IMPORTANT - throw clause can be used to propagate exceptions manually. It is helpful in case of checked exceptions propagation.
 In case of checked exception, propagated exceptions must be handled, otherwise it would result in compile-time exception.
 Checked exceptions does not have automatic propagation as in the case of unchecked exceptions. If an exception is propagated using throw keyword, the enclosing method must declare to throw (use throws) the checked exception.
+In Short - Throw must be used with Throws.
 
-6) Local Date and time are final classes and they can not be extended. Period is also a final class.
+6) Local Date, time and Period are final classes and they can not be extended.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
 To check if 2 LocalDate objects are equal, use .isEquals(LocalDate) method. == and .equals() will not give accurate result.
 M represents Month, m rep minutes, D rep Day of the year, d rep day of the month.
 LocalDate. LocatTime, LocalDateTime and Period is immutable.
 LocalDate. LocatTime, LocalDateTime and Period constructor is private. Objects of LocalDate, LocatTime, LocalDateTime and Period can not be created using new keyword.
+Period -  https://www.javatpoint.com/java-period
 
-7) If an interface is implemented by an abstract class, it need not override methods declared in the interface but the class extending the abstract class must override methods of the interface or few methods can be overriden in the abstract class and the rest can be overriden in the extending class.
-If a class implements an interface, it must override all the methods of the interface.
+7) If an interface is implemented by an abstract class, it need not override methods declared in the interface but the class extending the abstract class must override methods of the interface. Or few methods can be overriden in the abstract class and the rest can be overriden in the extending class.
+If a class implements an interface, it must override all the abstract(non-specified) methods of the interface.
 
 8) Access modifier not defined will be package protected, visible only within package.
-Objects can be modified by passing it to another method.
+Objects can be modified by passing it to another method. Because it is pass-by-reference.
 
 9) If the parent class has an overloading constructor, the child class MUST call super(parameter) method in its constructor. The parameter entered must match the variable type taken by the parent class constructor.
 A constructor can call another constructor using this(value) and not by calling the constructor by name.
@@ -75,7 +78,7 @@ StringBuilder's replace method accepts 3 arguments.
 If primitive types are passed as parameters, it is pass-by-value.
 Premmitive types can not hold null in them.
 
-15) Constructors are not of void return type.
+15) Constructors can not return void or anything else. It must not be declared.
 We can have methods with the same name as class with void return type and these are not constructors.
 
 16) Static blocks are executed when the class is being loaded onto JVM. psvm method is called later, after the class is loaded on to the JVM.
@@ -87,11 +90,12 @@ An exception can be thrown only if the method definition specifies a throws acti
 17) Switch statement needs break statement for every case without which the flow would continue to the following case till it reaches a break statement or end of switch statement.
 If default is placed at the begining of switch statement and there are no matching case and break statement, all the cases would be executed starting with default.
 If default is placed at the end of switch statement and there are no matching case and break statement, default would be executed and end of switch statement would be reached.
-NOTE - switch statement does not take long and double type variables.
+NOTE - switch statement accepts - enums, string and premitive types - byte, long, int, short and their wrappers.
+		It does not accept double and boolean.
 
 VERY TRICKY
 18) Strings assigned a constant expression such as "string literals or final" will be computed at "compile-time". All strings computed at compile time will be refered by "String pool"
-These string objects in string pool with not have duplicates and in the following case, they are refered to as a single object.
+These string objects in string pool will not have duplicates and in the following case, they are refered to as a single object.
 String s1 = "Arvind";
 String s2 = "Arvind" + "";
 Both s1 and s2 variables refer to "Arvind" with in the string pool as they are computed at compile time.
@@ -100,7 +104,7 @@ If s2 = s1 + ""; then s2 will be computed at run-time since it is a dynamic vari
 NOTE - String s = new String("Some string value") will create a string object in string-pool and in non-pool location.
 
 NOTE
-19) Parent class can not be assigned to a child class object using casting. It will throw a run-time exception - ClassCastException.
+19) Parent class object can not be assigned to a child class object using casting. It will throw a run-time exception - ClassCastException.
 
 20) An array of premitive type is initialized to their respective 0. An array of Object type is initialized to null.
 If isEmpty() is called on an element of object array, it will throw a NullPointerException at runtime.
@@ -116,11 +120,12 @@ NOTE - what is sent to parameter of main method.
 23) Using cmd for compiling and running a program, javac Name.java - compiles the java file.
 java Name One Two Three - Here One, Two and Three are the arguments passed on to the main method's parameters.
 It can be assessed inside the main method using the usual array operations.
+Main method argument can be an array[] or array...
 
 24) List can have any number of null.
 If we add an element to any location leaving the head blank, it will throw IndexOutOfBoundException at runtime.
 
-25) COnstructors can have either super(value) or this(value) and not both of them. They must be the first statement inside a child's constructor.
+25) Constructors can have either super(value) or this(value) and not both of them. They must be the first statement inside a child's constructor.
 If a class does not extend any other class and if super() method without any argument is called, the super is referring to the Object class's constructor.
 
 26) Top-level Classes can not be declared private or protected. Inner-classes can be declared private or protected.
@@ -139,7 +144,7 @@ If null is passed as parameter and if there are multiple same level(sibling obje
 
 29) Checked exceptions can not be assigned to try-catch without relevance. FileNotFoundException must be used when there is File based operation.
 If a method is throwing an exception within it, it must declare to throw exception in the definition itself. Otherwise will cause compile-time error.
-Can not have a catch a checked exception without have a possibility of irs occurance (without being thrown)
+Can not have a checked exception without having a possibility of its occurance (without being thrown)
 
 30) If an expressiion is computed at compile time, then object == object is true. All string literals, final variables and premitive types are computed at compile time.
 If an expression is computed at run-time, then object == object is false. All objects are computed at run-time.
@@ -162,8 +167,8 @@ NOTE - If the overloading methods have Byte and byte... as parameters, Byte some
 
 
 35) A variable without any access modifiers in an interface is public, static and final as all variables are explicitly public static final if declared otherwise.
-It can be accessed without creating a refrence variable of the interface. It can also be accessed by reference variable using the dot operator.
-Methods without any odifiers in an interface is public, abstract if the method has no definition.
+It can be accessed without creating a reference variable of the interface. It can also be accessed by reference variable using the dot operator.
+Methods without any modifiers in an interface is public, abstract if the method has no definition.
 
 36) It is possible to have same name (small letters) for package, class, variable, methods, constructor.
 If new keyword is not used to call the constructor of a class within the same class, it will not be invoked.
@@ -171,26 +176,25 @@ If new keyword is not used to call the constructor of a class within the same cl
 37) Static variables can be accessed with-in a non static method of the same class by using (can be accessed just by itself also) this. keyword although it is not a good practise.
 It can also be accessed using ClassName.
 Static methods do not support the use of this. and super. inside the method.
-Important -
-Static variable of an interface can be accessed using the reference variable of interface, reference variable of implementation and using the name of the interface and implementation.
-Static method of an interface can only be accessed using the name of the interface.
+NOTE - Very Important
 Static methods can access only static variable but instance methods can access both instance variable and static variable.
+Static variable of an interface can be accessed using the reference variable of interface, reference variable of implementation and using the name of the interface and implementation.
+Static method of an interface can only be accessed using the name of the interface. It can not be referred using its reference variable, the implementation's reference variable and the implementing class name.
+Static variable of a class can be accessed using reference variable of parent class, child class and using the name of the parent class and child class.
+Static method of a class can be accessed using reference variable of parent class, child class and using the name of the parent class and child class.
+NOTE -
+	Example - interface Parent, impl class Child. Parent has a static method run(). It can be accessed only by using Parent.run() and can not be accessed using Child.run, Parent p = new Child(); p.run(), Child c = new Child(); c.run().
+	Example - class Parent, class Child. Parent has a static method eat(). It can be accesses using Parent.eat(), Child.eat(), Parent p = new Parent(); p.eat(), Child c = new Child(); c.eat().
+Static methods can be overloaded but it can not be overridden (It can be re-defined in the child class). It does not throw compilation or runtime error, it simply ignores the overriden method and calls the parent's static method. Static methods can not just differ by keyword static while overloading, it throws a compile-time error.
 
-38) Instances can not be instantiated. Array of Instance can be created using the new keyword but size of the array must be instianted in the declaration itself.
-NOTE - static method of a class/interface can be referred by using their class name and can not be accessed using its child class, etc.
-Example - interface/class Parent , class child extends/implements Parent and Parent has a static variable name. The static variable name belonging to Parent can only be accessed
-using parent class name -> Parent.name and can not be accessed using child class -> Child.name.
-NOYE - Static methods can be overloaded but it can not be overridden. It does not throw compilation or runtime error, it simply ignores the overriden method and call the parent's
-static method. Static methods can not just differ by keyword static while overloading, it throws a compile-time error.
+38) Instances can not be instantiated. Array of Instance can be created using the new keyword but size of the array must be instantiated in the declaration itself.
 
-39) But public Static final (explicitly defined) variables of an interface can be referred using referrence variables.
+39) public static final (explicitly defined) variables of an interface can be referred using referrence variables.
 Example - interface Parentable, class Child implements Parentable and Parent interface has a variable name. This variable can be accessed as follows -
 Parentable parent = new Child(); parent.name;
 
-40) Default methods are public if no access modifiers are provided. If a class implements multiple interfaces that has the same default method then the implementing class must override
-those default methods. LOGIC - the implementing class will not know which default method to inherit from the multiple interfaces.
+40) In an interface, Default methods are public if no access modifiers are provided. If a class implements multiple interfaces that has the same default method then the implementing class must override those default methods. LOGIC - the implementing class will not know which default method to inherit from the multiple interfaces.
 NOTE - Default method can be declared only in interfaces. Default method can call static method just like calling other methods within the same interface.
-
 ALL abstract, static, default methods in an interface are implicitly public. All constant variables are public, static, final in an interface.
 
 41)	a) A catch clause can have multiple exceptions seperated by "|". But those exceptions must not be related - child-parent because first exception may be caught and the second one
@@ -304,4 +308,8 @@ NOTE - In short, reference variables will call the overriden method,
 
 52) char aa = 'a' will assign a to char.
 	char aa = 97 will assign the ascii value of 97 which is 'a' to char.
+
+
+
+
 

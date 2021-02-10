@@ -28,6 +28,10 @@ public class App implements Tess {
     }
 
     public static void main(String[] args) {
+
+    }
+
+    private static void mma() {
         int[] aaaa[] = new int[4][5];
         char aa = 97;
         System.out.println(aa);
