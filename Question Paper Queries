@@ -1,4 +1,4 @@
-Java practise test 1 --------
+Java practise test --------
 
 1) Compile time error - Detected while writing code, usually syntax error. Can be fixed while coding
    Runtime error - Detected while running the code. These has to do with exceptions.
@@ -185,7 +185,8 @@ Static method of a class can be accessed using reference variable of parent clas
 NOTE -
 	Example - interface Parent, impl class Child. Parent has a static method run(). It can be accessed only by using Parent.run() and can not be accessed using Child.run, Parent p = new Child(); p.run(), Child c = new Child(); c.run().
 	Example - class Parent, class Child. Parent has a static method eat(). It can be accesses using Parent.eat(), Child.eat(), Parent p = new Parent(); p.eat(), Child c = new Child(); c.eat().
-Static methods can be overloaded but it can not be overridden (It can be re-defined in the child class). It does not throw compilation or runtime error, it simply ignores the overriden method and calls the parent's static method. Static methods can not just differ by keyword static while overloading, it throws a compile-time error.
+Static methods can be overloaded but it can not be overridden (It can be re-defined in the child class). It does not throw compilation or runtime error, it simply ignores the overriden method and calls the method belonging to the reference variable.
+Static methods can not just differ by keyword static while overloading, it throws a compile-time error.
 
 38) Instances can not be instantiated. Array of Instance can be created using the new keyword but size of the array must be instantiated in the declaration itself.
 
@@ -205,7 +206,7 @@ ALL abstract, static, default methods in an interface are implicitly public. All
 
 	b) If a catch block handles more than one exception type, then the catch parameter is implicitly final. It can not be assigned another value.
 	Example - catch(IOException | SQLException er) { er = new IOException } - here er is final variable and causes compile-time error if a value is assigned to it.
-	NOTE - For multiple catch clauses, the unchecked exceptions variable can be assigned value cos its not final variable. But for checked exceptions, it can not assigned values.
+	NOTE - For multiple catch clauses, the unchecked exceptions variable can be assigned value cos its not final variable. But for checked exceptions, calues can not be assigned.
 
 	c)	Exception ex can be used to catch all its subclasses mentioned in throws clause.
 
@@ -263,7 +264,7 @@ NOTE - All resources must implement AutoClosable interface. All resources passed
 		4. any number of unchecked exception
 	NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
 
-45) Static variables can be accessed without creating a new objects, using the new keyword.
+45) Static variables can be accessed without creating an objects, using the new keyword.
 Example - If an array of objects are initialised to hold n elements in it. For-each loop traversing through it to fetch each element can be used to call the static variable of the object eventhough all elements are pointing at null.
 
 46) Objects class can not be instantiated because its constructor is a private constructor. It throws a compile-time error.
@@ -300,16 +301,11 @@ NOTE - In short, reference variables will call the overriden method,
 
 	4) Super sup = new Super(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
 	5) Super sup = new Sub(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
-	6) Super sup = new Super(), can not call the methods of Sub class.
+	6) Sub sup = new Sub(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
 
 	7) Sub sup = new Sub(), norm() is not overriden and belongs to Sub class, sup.norm() will call the norm() from Sub class.
-	8) Super sup = new Sub(), can not call the methods of Sub class.
-	9) Sub sup = new Sub(), new Sub(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
+	8) Super sup = new Sub(), norm() is not overriden and belongs to Sub class, can not call the methods of Sub class.
+	9) Super sup = new Super(), norm() is not overriden and belongs to Sub class, can not call the methods of Sub class.
 
 52) char aa = 'a' will assign a to char.
 	char aa = 97 will assign the ascii value of 97 which is 'a' to char.
-
-
-
-
-

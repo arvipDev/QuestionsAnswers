@@ -27,10 +27,6 @@ public class App implements Tess {
         Cla3.man();
     }
 
-    public static void main(String[] args) {
-
-    }
-
     private static void mma() {
         int[] aaaa[] = new int[4][5];
         char aa = 97;
