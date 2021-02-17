@@ -93,6 +93,17 @@ public class App implements Tess {
         System.out.println(bb);
     }
 
+    public static void main(String[] args) {
+        int ac = 'a';
+        System.out.println(ac);
+        char cc = 998;
+        char var = 10;
+        System.out.println(var);
+        System.out.println(cc);
+        int cca = 'a';
+        System.out.println(cca);
+    }
+
     private static void main () {
 
         //*********************************************

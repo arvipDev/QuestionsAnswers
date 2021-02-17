@@ -48,6 +48,7 @@ In Short - Throw must be used with Throws.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
 To check if 2 LocalDate objects are equal, use .isEquals(LocalDate) method. == and .equals() will not give accurate result.
 M represents Month, m rep minutes, D rep Day of the year, d rep day of the month.
+LocalDate can not be obtained by parsinng a single digit M, d or Y value.
 LocalDate. LocatTime, LocalDateTime and Period is immutable.
 LocalDate. LocatTime, LocalDateTime and Period constructor is private. Objects of LocalDate, LocatTime, LocalDateTime and Period can not be created using new keyword.
 Period -  https://www.javatpoint.com/java-period
@@ -90,8 +91,8 @@ An exception can be thrown only if the method definition specifies a throws acti
 17) Switch statement needs break statement for every case without which the flow would continue to the following case till it reaches a break statement or end of switch statement.
 If default is placed at the begining of switch statement and there are no matching case and break statement, all the cases would be executed starting with default.
 If default is placed at the end of switch statement and there are no matching case and break statement, default would be executed and end of switch statement would be reached.
-NOTE - switch statement accepts - enums, string and premitive types - byte, long, int, short and their wrappers.
-		It does not accept double and boolean.
+NOTE - switch statement accepts - enums, string and premitive types - byte, int, short, char and their wrappers.
+		It does not accept long, double or boolean.
 
 VERY TRICKY
 18) Strings assigned a constant expression such as "string literals or final" will be computed at "compile-time". All strings computed at compile time will be refered by "String pool"
@@ -124,6 +125,7 @@ Main method argument can be an array[] or array...
 
 24) List can have any number of null.
 If we add an element to any location leaving the head blank, it will throw IndexOutOfBoundException at runtime.
+The "end" index of the StringBuilder manipulation methods such as delete.(start, end) is exclusive. It does not throw out of cound error.
 
 25) Constructors can have either super(value) or this(value) and not both of them. They must be the first statement inside a child's constructor.
 If a class does not extend any other class and if super() method without any argument is called, the super is referring to the Object class's constructor.
@@ -139,7 +141,7 @@ Instead it will refer to the same objects in the Heap. But for objects outside t
 Character value below 127, Boolean, Byte and Short follow the same principle.
 
 28) Call to the overloading method with parameter - The call will be made to the method whose parameter is lowest in the hierarchy.
-example - parameters are of type Object, CharSequence, String - overloading method wil be mapped to the method whose parameter is of type String.
+example - parameters are of type Object, CharSequence, String - method(null) is called. Overloading method wil be mapped to the method whose paremeter accepts null and who is loweer in hierarchy.
 If null is passed as parameter and if there are multiple same level(sibling objects) parameters, Compile-time error will occur.
 
 29) Checked exceptions can not be assigned to try-catch without relevance. FileNotFoundException must be used when there is File based operation.
@@ -309,3 +311,8 @@ NOTE - In short, reference variables will call the overriden method,
 
 52) char aa = 'a' will assign a to char.
 	char aa = 97 will assign the ascii value of 97 which is 'a' to char.
+	char aaa = '10' is not allowed. Compiler error.
+
+
+
+
