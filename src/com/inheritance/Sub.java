@@ -5,6 +5,7 @@ public class Sub extends Super {
     int com =  20;
     Sub(){
     }
+    @Override
     public void orm(){
         System.out.println("Sub orm");
     }

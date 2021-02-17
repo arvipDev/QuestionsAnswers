@@ -1,7 +1,7 @@
 Java practise test --------
 
-1) Compile time error - Detected while writing code, usually syntax error. Can be fixed while coding
-   Runtime error - Detected while running the code. These has to do with exceptions.
+1) Checked/Compile time error - Detected while writing code, usually syntax error. Can be fixed while coding
+   Unchecked/Runtime error - Detected while running the code. These has to do with exceptions.
 
 2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique. Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
 NOTE - remove(Object) will return boolean. remove(index) will return removed object.
@@ -18,6 +18,9 @@ int[][] arr = new int[size][]
 int[] arr[] = new int[size][size]
 int arr[][] = new int[size][size]
 int[][] arr = new int[size][size]
+int arr[][] = new int[][] {{val1, val2}, {cal3, val4, val5}}
+int[][] arr = new int[][] {{val1, val2}, {cal3, val4, val5}}
+int[] arr[] = new int[][] {{val1, val2}, {cal3, val4, val5}}
 int[] arr = new int[size]
 int arr[] = new int[size]
 int arr[] = new int[] {val1, val2} // only 2 elements would be assigned to this array
@@ -92,7 +95,7 @@ An exception can be thrown only if the method definition specifies a throws acti
 If default is placed at the begining of switch statement and there are no matching case and break statement, all the cases would be executed starting with default.
 If default is placed at the end of switch statement and there are no matching case and break statement, default would be executed and end of switch statement would be reached.
 NOTE - switch statement accepts - enums, string and premitive types - byte, int, short, char and their wrappers.
-		It does not accept long, double or boolean.
+		It does not accept long,float, double or boolean.
 
 VERY TRICKY
 18) Strings assigned a constant expression such as "string literals or final" will be computed at "compile-time". All strings computed at compile time will be refered by "String pool"
@@ -108,14 +111,14 @@ NOTE
 19) Parent class object can not be assigned to a child class object using casting. It will throw a run-time exception - ClassCastException.
 
 20) An array of premitive type is initialized to their respective 0. An array of Object type is initialized to null.
-If isEmpty() is called on an element of object array, it will throw a NullPointerException at runtime.
+If isEmpty() is called on an element of an empty object array, it will throw a NullPointerException at runtime.
 
 21) While using iterator, we should avoid modifying the collections. If there is an absolute need to modify the collections, it should be done using the iterator.add and remove
 methods and not using the colections.add or remove methods as it will result in ConcurrentModificationException.
 Within a treaditional for loop, a collection object can be modified.
 This is however not possible in case of for-each loop or while using iterator (While using iterator, we must use the iterator's remove() method to remove an element from the list)
 
-22) If a class "One" extends another class "Two" from a different package and there are 2 variables of which one is protected. We must use this. or super. to access that protected variable if getters are not available.
+22) If class "One" extends another class "Two" from a different package and there are 2 variables of which one is protected. We must use this. or super. to access that protected variable if getters are not available.
 
 NOTE - what is sent to parameter of main method.
 23) Using cmd for compiling and running a program, javac Name.java - compiles the java file.
@@ -125,7 +128,7 @@ Main method argument can be an array[] or array...
 
 24) List can have any number of null.
 If we add an element to any location leaving the head blank, it will throw IndexOutOfBoundException at runtime.
-The "end" index of the StringBuilder manipulation methods such as delete.(start, end) is exclusive. It does not throw out of cound error.
+The "end" index of the StringBuilder manipulation methods such as delete.(start, end) is exclusive. It does not throw out of bound error.
 
 25) Constructors can have either super(value) or this(value) and not both of them. They must be the first statement inside a child's constructor.
 If a class does not extend any other class and if super() method without any argument is called, the super is referring to the Object class's constructor.
@@ -239,11 +242,11 @@ default to static - No, becuase instance method can not be overriden to static.
 3) public abstract void do()							public static void do(){}				Compile-time error, becuase static method can not override instance method.
 4) public static void do(){}							public abstract void do()				Not possible because impl class is not abstract.
 
-NOTE - IMPORTANT - Static method inside an interface can not refernce a non-static method of the same interface.
+NOTE - IMPORTANT - Static method inside an interface can not reference a non-static method of the same interface.
 But a non-static method within an interface can refer to the static method of the same interface.
 
 TO REMEMBER 1) I-to-I (Everything is allowed except default to static)													(I-I-D-S) I-I = DS
-			2) C-to-C (Nothing is allowed) instance method can be overriden to static method and vice-versa				(C-C-Nothing)
+			2) C-to-C (Nothing is allowed) instance method can not be overriden to static method and vice-versa			(C-C-Nothing)
 			3) I-to-C (Nothing is allowed except static to non-static)													(I-C-S-NS) I-C = SNS
 
 43) ARM - Automatic Resource Management is part of Java 1.7 and it is used to handle resource within try-catch block. The resources are managed when the compiler reaches the end
@@ -264,9 +267,9 @@ NOTE - All resources must implement AutoClosable interface. All resources passed
 		2. Same checked exception or
 		3. Sub-type of checked exception or
 		4. any number of unchecked exception
-	NOTE - Exception can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
+	NOTE - "Exception" can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
 
-45) Static variables can be accessed without creating an objects, using the new keyword.
+45) Static variables can be accessed without creating objects, using the new keyword.
 Example - If an array of objects are initialised to hold n elements in it. For-each loop traversing through it to fetch each element can be used to call the static variable of the object eventhough all elements are pointing at null.
 
 46) Objects class can not be instantiated because its constructor is a private constructor. It throws a compile-time error.
@@ -288,10 +291,6 @@ However, a child reference can call parents variable.
 50) If an interface extends another interface, overrides its method and a class implements both the interfaces, The class will access the child interface's overriden method even if the reference type is of parent interface.
 
 51) Sub class and super class -
-	a) Sub class reference can call overriden methods, Super class methods and Sub class methods
-	b) Super class reference can call overriden method and Super class method only.
-	c) Super class reference pointing at Sub class instance can call the overriden method (will call the Sub class version) and Super class method only.
-
 NOTE - In short, reference variables will call the overriden method,
 	   If method is not overriden, it will call method from itself.
 	   If method is not declared in it, it will call method from its parent. In this order.
@@ -306,8 +305,8 @@ NOTE - In short, reference variables will call the overriden method,
 	6) Sub sup = new Sub(), snorm() is not overriden and belongs to Super class, sup.snorm() will call the snorm() from Super class.
 
 	7) Sub sup = new Sub(), norm() is not overriden and belongs to Sub class, sup.norm() will call the norm() from Sub class.
-	8) Super sup = new Sub(), norm() is not overriden and belongs to Sub class, can not call the methods of Sub class.
-	9) Super sup = new Super(), norm() is not overriden and belongs to Sub class, can not call the methods of Sub class.
+	8) Super sup = new Sub(), norm() is not overriden and belongs to Sub class, can not call the methods of Sub class. Compiler error
+	9) Super sup = new Super(), norm() is not overriden and belongs to Sub class, can not call the methods of Sub class. Compiler error
 
 52) char aa = 'a' will assign a to char.
 	char aa = 97 will assign the ascii value of 97 which is 'a' to char.

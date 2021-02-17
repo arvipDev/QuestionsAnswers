@@ -94,6 +94,11 @@ public class App implements Tess {
     }
 
     public static void main(String[] args) {
+        Super sup = new Super();
+        sup.orm();
+    }
+
+    private static void mmnnhh(){
         int ac = 'a';
         System.out.println(ac);
         char cc = 998;
