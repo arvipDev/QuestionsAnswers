@@ -5,6 +5,7 @@ import com.prep.Tess;
 
 import javax.naming.ServiceUnavailableException;
 import java.io.*;
+import java.time.Period;
 import java.util.Objects;
 
 public class App implements Tess {
@@ -94,8 +95,10 @@ public class App implements Tess {
     }
 
     public static void main(String[] args) {
-        Super sup = new Super();
-        sup.orm();
+        //Super sup = new Super();
+        //sup.orm();
+        Period period = Period.of(2000, 10, 21);
+        System.out.println(period);
     }
 
     private static void mmnnhh(){

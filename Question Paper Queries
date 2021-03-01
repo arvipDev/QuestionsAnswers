@@ -6,6 +6,7 @@ Java practise test --------
 2) For collections like List, ArrayList -  Without overriding equals() method, objects can not be removed from the list because comparisions will be drawn out between the instance variable of the two objects, which are always unique. Remove does not remove all occurance of the object. It just removes the first occurance of it. Does not remove duplciates.
 NOTE - remove(Object) will return boolean. remove(index) will return removed object.
 removeIf(Predicate<T> p) traverses through the list and removes all the items that satisfies the condition mentioned in the predicate. It returns a boolean.
+Add/remove of elements from collection must be continious, else it causes run-time exception.
 
 3) If we call the main method inside the main method - Stack over flow error occurs as the main method is called repeatedly without completion of execution.
 args array is of length 0. If the class is compiled and called using cmd, then we can add items to args array of main method.
@@ -38,7 +39,7 @@ All other subclass of Throwable class is checked exception.....
 https://www.benchresources.net/interview-question-and-answer-on-exception-handling-in-java/
 For multiple catch clauses - lower most child must come first followed by higher ones.
 NOTE - If a method throws checked exception, it must be caught using try-catch or it must be propagated using throws clause.
-If a method throws unchecked exception or errors, it may not be caught or propagated.
+If a method throws unchecked exception or errors, it may or may not be caught or propagated.
 For user defined exceptions, if it extends from a checked exception, it must be caught, else it may not be caught or propagated.
 NOTE - If an exception is thrown manually using the throw keyword, the mothod should declare to throw that exception, Else compile-time error will occur.
 
@@ -50,11 +51,17 @@ In Short - Throw must be used with Throws.
 6) Local Date, time and Period are final classes and they can not be extended.
 Period is used to assign a LocalDate value. It can be used to add/minus date from a LocalDtae object.
 To check if 2 LocalDate objects are equal, use .isEquals(LocalDate) method. == and .equals() will not give accurate result.
+.equaals may also be used as it overrides .equals() also.
 M represents Month, m rep minutes, D rep Day of the year, d rep day of the month.
 LocalDate can not be obtained by parsinng a single digit M, d or Y value.
 LocalDate. LocatTime, LocalDateTime and Period is immutable.
 LocalDate. LocatTime, LocalDateTime and Period constructor is private. Objects of LocalDate, LocatTime, LocalDateTime and Period can not be created using new keyword.
 Period -  https://www.javatpoint.com/java-period
+java.util package has Date.
+java.time.format package has DateTimeFormatter
+java.time package package has LocalDate, etc.
+Period will be printed as - P0Y0M0D
+Period.of(year, month day)
 
 7) If an interface is implemented by an abstract class, it need not override methods declared in the interface but the class extending the abstract class must override methods of the interface. Or few methods can be overriden in the abstract class and the rest can be overriden in the extending class.
 If a class implements an interface, it must override all the abstract(non-specified) methods of the interface.
@@ -135,7 +142,7 @@ If a class does not extend any other class and if super() method without any arg
 
 26) Top-level Classes can not be declared private or protected. Inner-classes can be declared private or protected.
 Protected methods and variables are accessable within the package and by the subclasses in any package.
-No access modifier methods and variables are accessable only within the package.
+"No access modifier" methods and variables are accessable only within the package.
 When a class extends another, the overriding methods must have a same/higher permissive access modifier than the parent's method
 
 NOTE - Very important. Tricky Question.
@@ -155,14 +162,14 @@ Can not have a checked exception without having a possibility of its occurance (
 If an expression is computed at run-time, then object == object is false. All objects are computed at run-time.
 NOTE - In case of a string concatination, all static concatinations (final variable, string literals, primitive types) are refered from string poll.
 
-NOTE - Remember to watch out for short-circuit operations in equations. They will not be evaluated. Imagine if, if-else look to find its logic.
+NOTE - Remember to watch out for short-circuit operations in equations. They will not be evaluated. Imagine if, if-else condition to find its logic.
 
 31) Order of presedence in JAVA - https://introcs.cs.princeton.edu/java/11precedence/
 
 32) Generic syntax do not follow sub-class super-class relationship
 EX - List<Animal> a = nw ArrayList<Dog>() will not compile.
 
-33) if the parameter of the method is - (char... word), then word will be an array of char, we can input as many char as possible.
+33) if the parameter of the method is - (char... word), then word will be an array of char, we can input as many char as needed.
 NOTE - If the overloading methods have Byte and byte... as parameters, Byte someName will be evaluated ahead of byte... otherName.
 
 34) bitwise operator for boolean give out the following results -
@@ -187,6 +194,9 @@ Static variable of an interface can be accessed using the reference variable of 
 Static method of an interface can only be accessed using the name of the interface. It can not be referred using its reference variable, the implementation's reference variable and the implementing class name.
 Static variable of a class can be accessed using reference variable of parent class, child class and using the name of the parent class and child class.
 Static method of a class can be accessed using reference variable of parent class, child class and using the name of the parent class and child class.
+*** Static variable of Class and Interface and Static method of Class can be accessed using reference variable of class and interface and name of class and interface.
+*** Static method of an interface can only be accessed using the interface name.
+
 NOTE -
 	Example - interface Parent, impl class Child. Parent has a static method run(). It can be accessed only by using Parent.run() and can not be accessed using Child.run, Parent p = new Child(); p.run(), Child c = new Child(); c.run().
 	Example - class Parent, class Child. Parent has a static method eat(). It can be accesses using Parent.eat(), Child.eat(), Parent p = new Parent(); p.eat(), Child c = new Child(); c.eat().
@@ -269,8 +279,13 @@ NOTE - All resources must implement AutoClosable interface. All resources passed
 		4. any number of unchecked exception
 	NOTE - "Exception" can not be declared to be thrown by an overriding method if the overridden method does not throw checked exception.
 
+	throw "exception" - try-catch() block relationship
+		The catch clause must have either the same exception thrown or its parent.
+		The catch clause can not have a sub-class/child of the exceptions being thrown.
+
 45) Static variables can be accessed without creating objects, using the new keyword.
 Example - If an array of objects are initialised to hold n elements in it. For-each loop traversing through it to fetch each element can be used to call the static variable of the object eventhough all elements are pointing at null.
+NOTE - Fetching null from collection will not cause errpr/exception. Performing actions on null will cause NullPointerException.
 
 46) Objects class can not be instantiated because its constructor is a private constructor. It throws a compile-time error.
 But Object class can be instantiated. Its constructor is public constructor.
@@ -312,6 +327,7 @@ NOTE - In short, reference variables will call the overriden method,
 	char aa = 97 will assign the ascii value of 97 which is 'a' to char.
 	char aaa = '10' is not allowed. Compiler error.
 
+53) for(;;) is an infinite loop.
 
-
+54) All conflict of interest errors/exceptions will be compiile time errors/exceptions.
 
