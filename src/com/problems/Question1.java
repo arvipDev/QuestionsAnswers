@@ -4,15 +4,13 @@ package com.problems;
 //  reverse the number and compare it with the input.
 
 public class Question1 {
-    public boolean isPalindrome(int x) {
-        if (x < 0) return false;
-        int reverse = 0, input = x;
-        while (x / 10 > 0){
-            reverse = (reverse*10) + (x % 10);
-            x /= 10;
+    public boolean isPalindrome(int value) {
+        int reverseValue = 0;
+        int tempValue = value;
+        while(tempValue > 0){
+            reverseValue = (reverseValue * 10) + (tempValue % 10);
+            tempValue /= 10;
         }
-        reverse = (reverse*10) + (x % 10);
-        if (input == reverse) return true;
-        return false;
+        return (reverseValue == value);
     }
 }

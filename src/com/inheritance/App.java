@@ -6,6 +6,8 @@ import com.prep.Tess;
 import javax.naming.ServiceUnavailableException;
 import java.io.*;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class App implements Tess {
@@ -97,8 +99,13 @@ public class App implements Tess {
     public static void main(String[] args) {
         //Super sup = new Super();
         //sup.orm();
-        Period period = Period.of(2000, 10, 21);
-        System.out.println(period);
+        //Child c = new Child();
+        List<Character> list = new ArrayList<>();
+        list.add('9');
+        list.add('9');
+        list.add('1');
+        System.out.println(list);
+
     }
 
     private static void mmnnhh(){
