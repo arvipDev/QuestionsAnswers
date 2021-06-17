@@ -1,14 +1,4 @@
 package com.regex;
-
-<<<<<<< HEAD
-public class Main {
-    public static void main(String[] args) {
-
-    }
-
-    public static void test1(){
-
-=======
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -47,6 +37,5 @@ public class Main {
         // {number1, number2} all matches between number1 and number2, inclusive.
 
         System.out.println(input);
->>>>>>> 94d366775d968011cccf0b83efa688a930e722e9
     }
 }
