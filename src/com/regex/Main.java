@@ -5,12 +5,14 @@ import java.util.regex.Pattern;
 public class Main {
 
     public static void main(String[] args) {
-        String input = "The fat cat ran down the street.\nIt was searching for a mouse to eat. 7Stone 10stun stock 12496 6987 331";
+        String input = "990 293 0265";
+                //"The fat cat ran down the street.\nIt was searching for a mouse to eat. Cod.";
         test1(input);
     }
 
     private static void test1(String input){
-        String regex = "\\S+";
+        String regex = "\\d+";
+                //"(\\d{3})(\\D)?(\\d{3})(\\D)?(\\d{4})";
         Pattern pattern = Pattern.compile(regex, Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(input);
         while (matcher.find()){
@@ -19,7 +21,7 @@ public class Main {
         }
 
         // + one or more occurance
-        // ? none or one occurance
+        // ? none or one occurance (optional)
         // * none or more occurance
         // . anything(1 character) or nothing
         // \\w all alphabets
@@ -35,6 +37,13 @@ public class Main {
         // {number} all matches <= n
         // {number,} all matches > n
         // {number1, number2} all matches between number1 and number2, inclusive.
+        // [abc]{2,5} atleast 2 should match and max of 5 can match, in any order.
+        // (?m) consider multiline string (if string contains multiple line, it will be considered)
+        // ^ start of line. must be used with (?m) if multiple lines exist in single string.
+        // "(?<=[Tt]he.)\w+" Positive lookbehind - gets the word followed by The|the and a character
+        // "(?<![Tt]he.)\w+" Negative lookbehind
+        // FYI - "(?<=\\s)\\w+"; = "(?<![a-z])\\w+";
+
 
         System.out.println(input);
     }
