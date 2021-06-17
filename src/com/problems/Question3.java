@@ -11,6 +11,7 @@ package com.problems;
 import java.util.Arrays;
 
 public class Question3 {
+
     //Solution 1
 /*    public int countPrimes(int n) {
         int count = 0;
@@ -32,7 +33,7 @@ public class Question3 {
         return true;
     }*/
 
-    /*//Solution 1
+    /*//Solution 2
     public int countPrimes(int n) {
         int count = 2;
         boolean isPrime[] = new boolean[n];
@@ -66,7 +67,7 @@ public class Question3 {
         return count;
     }*/
 
-    //Solution 3 - Best algo - Sieve of Eratosthenes
+    //Solution 3 - Best algo - Sieve of Eratosthenes - O(Nlog(logN))
 
     public int countPrimes(int n) {
         int count = 0;

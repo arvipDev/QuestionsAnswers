@@ -1,5 +1,10 @@
 package com.problems;
 
+
+import javax.crypto.spec.PSource;
+import java.util.Arrays;
+import java.util.LinkedList;
+
 public class Main {
     public static void main(String[] args) {
         //Question1 q1 = new Question1();
@@ -21,11 +26,23 @@ public class Main {
         System.out.println(q4.isIsomorphic("ab","ca"));
         System.out.println(q4.isIsomorphic("ab","aa"));*/
 
-        Question2 q1 = new Question2();
-        System.out.println(q1.romanToInt("CCCLXIX"));
-
-
-
+        int[] ar = insertionSort(new int[]{1, 6, 9, 8, 7, 5, 2});
+        System.out.println(Arrays.toString(ar));
 
     }
+    static int[] insertionSort (int arr[]){
+        for(int i = 0; i < arr.length; i++){
+            int j = i;
+            while(j > 0){
+                if(arr[j] < arr[j-1]){
+                    int temp = arr[j];
+                    arr[j] = arr[j-1];
+                    arr[j-1] = temp;
+                }
+                j -= 1;
+            }
+        }
+        return arr;
+    }
+
 }
